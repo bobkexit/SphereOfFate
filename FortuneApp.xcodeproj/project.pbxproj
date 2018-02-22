@@ -10,10 +10,11 @@
 		353BB1CD203DE1C40061CF48 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353BB1CC203DE1C40061CF48 /* DataService.swift */; };
 		353BB1D3203DF13E0061CF48 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 353BB1D2203DF13E0061CF48 /* data.json */; };
 		35600DA7203DDCAA005CEAD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35600DA6203DDCAA005CEAD9 /* AppDelegate.swift */; };
-		35600DA9203DDCAA005CEAD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35600DA8203DDCAA005CEAD9 /* ViewController.swift */; };
+		35600DA9203DDCAA005CEAD9 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35600DA8203DDCAA005CEAD9 /* MainVC.swift */; };
 		35600DAC203DDCAA005CEAD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAA203DDCAA005CEAD9 /* Main.storyboard */; };
 		35600DAE203DDCAA005CEAD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAD203DDCAA005CEAD9 /* Assets.xcassets */; };
 		35600DB1203DDCAA005CEAD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAF203DDCAA005CEAD9 /* LaunchScreen.storyboard */; };
+		35BC1A50203F490500D12347 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC1A4F203F490500D12347 /* GradientView.swift */; };
 		DEA426D14AE43228363C64F4 /* Pods_FortuneApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45CB0E182D419F7837867841 /* Pods_FortuneApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -22,11 +23,12 @@
 		353BB1D2203DF13E0061CF48 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		35600DA3203DDCAA005CEAD9 /* FortuneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FortuneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35600DA6203DDCAA005CEAD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		35600DA8203DDCAA005CEAD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		35600DA8203DDCAA005CEAD9 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
 		35600DAB203DDCAA005CEAD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35600DAD203DDCAA005CEAD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35600DB0203DDCAA005CEAD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35600DB2203DDCAA005CEAD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		35BC1A4F203F490500D12347 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		45CB0E182D419F7837867841 /* Pods_FortuneApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FortuneApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67023814ADAA9863FCB97479 /* Pods-FortuneApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FortuneApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FortuneApp/Pods-FortuneApp.release.xcconfig"; sourceTree = "<group>"; };
 		80726E9128EE82C4E3AF8969 /* Pods-FortuneApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FortuneApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FortuneApp/Pods-FortuneApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,16 +91,33 @@
 		35600DA5203DDCAA005CEAD9 /* FortuneApp */ = {
 			isa = PBXGroup;
 			children = (
-				353BB1C9203DE1640061CF48 /* Supported Files */,
 				353BB1CE203DE1D80061CF48 /* Services */,
+				35BC1A4D203F487700D12347 /* Views */,
+				35BC1A4E203F488700D12347 /* Controllers */,
+				353BB1C9203DE1640061CF48 /* Supported Files */,
 				35600DA6203DDCAA005CEAD9 /* AppDelegate.swift */,
-				35600DA8203DDCAA005CEAD9 /* ViewController.swift */,
 				35600DAA203DDCAA005CEAD9 /* Main.storyboard */,
 				35600DAD203DDCAA005CEAD9 /* Assets.xcassets */,
 				35600DAF203DDCAA005CEAD9 /* LaunchScreen.storyboard */,
 				35600DB2203DDCAA005CEAD9 /* Info.plist */,
 			);
 			path = FortuneApp;
+			sourceTree = "<group>";
+		};
+		35BC1A4D203F487700D12347 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				35BC1A4F203F490500D12347 /* GradientView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		35BC1A4E203F488700D12347 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				35600DA8203DDCAA005CEAD9 /* MainVC.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		7A36D5AFC4C13502DC15A858 /* Pods */ = {
@@ -241,7 +260,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				353BB1CD203DE1C40061CF48 /* DataService.swift in Sources */,
-				35600DA9203DDCAA005CEAD9 /* ViewController.swift in Sources */,
+				35600DA9203DDCAA005CEAD9 /* MainVC.swift in Sources */,
+				35BC1A50203F490500D12347 /* GradientView.swift in Sources */,
 				35600DA7203DDCAA005CEAD9 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
