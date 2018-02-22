@@ -7,14 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		353BB1CD203DE1C40061CF48 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353BB1CC203DE1C40061CF48 /* DataService.swift */; };
+		353BB1D3203DF13E0061CF48 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 353BB1D2203DF13E0061CF48 /* data.json */; };
 		35600DA7203DDCAA005CEAD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35600DA6203DDCAA005CEAD9 /* AppDelegate.swift */; };
 		35600DA9203DDCAA005CEAD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35600DA8203DDCAA005CEAD9 /* ViewController.swift */; };
 		35600DAC203DDCAA005CEAD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAA203DDCAA005CEAD9 /* Main.storyboard */; };
 		35600DAE203DDCAA005CEAD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAD203DDCAA005CEAD9 /* Assets.xcassets */; };
 		35600DB1203DDCAA005CEAD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAF203DDCAA005CEAD9 /* LaunchScreen.storyboard */; };
+		DEA426D14AE43228363C64F4 /* Pods_FortuneApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45CB0E182D419F7837867841 /* Pods_FortuneApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		353BB1CC203DE1C40061CF48 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		353BB1D2203DF13E0061CF48 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		35600DA3203DDCAA005CEAD9 /* FortuneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FortuneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35600DA6203DDCAA005CEAD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		35600DA8203DDCAA005CEAD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +27,9 @@
 		35600DAD203DDCAA005CEAD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35600DB0203DDCAA005CEAD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35600DB2203DDCAA005CEAD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		45CB0E182D419F7837867841 /* Pods_FortuneApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FortuneApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67023814ADAA9863FCB97479 /* Pods-FortuneApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FortuneApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FortuneApp/Pods-FortuneApp.release.xcconfig"; sourceTree = "<group>"; };
+		80726E9128EE82C4E3AF8969 /* Pods-FortuneApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FortuneApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FortuneApp/Pods-FortuneApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEA426D14AE43228363C64F4 /* Pods_FortuneApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		345CA6695B34AA62C69BD0B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				45CB0E182D419F7837867841 /* Pods_FortuneApp.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		353BB1C9203DE1640061CF48 /* Supported Files */ = {
+			isa = PBXGroup;
+			children = (
+				353BB1D2203DF13E0061CF48 /* data.json */,
+			);
+			path = "Supported Files";
+			sourceTree = "<group>";
+		};
+		353BB1CE203DE1D80061CF48 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				353BB1CC203DE1C40061CF48 /* DataService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		35600D9A203DDCA9005CEAD9 = {
 			isa = PBXGroup;
 			children = (
 				35600DA5203DDCAA005CEAD9 /* FortuneApp */,
 				35600DA4203DDCAA005CEAD9 /* Products */,
+				7A36D5AFC4C13502DC15A858 /* Pods */,
+				345CA6695B34AA62C69BD0B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +89,8 @@
 		35600DA5203DDCAA005CEAD9 /* FortuneApp */ = {
 			isa = PBXGroup;
 			children = (
+				353BB1C9203DE1640061CF48 /* Supported Files */,
+				353BB1CE203DE1D80061CF48 /* Services */,
 				35600DA6203DDCAA005CEAD9 /* AppDelegate.swift */,
 				35600DA8203DDCAA005CEAD9 /* ViewController.swift */,
 				35600DAA203DDCAA005CEAD9 /* Main.storyboard */,
@@ -64,6 +101,15 @@
 			path = FortuneApp;
 			sourceTree = "<group>";
 		};
+		7A36D5AFC4C13502DC15A858 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				80726E9128EE82C4E3AF8969 /* Pods-FortuneApp.debug.xcconfig */,
+				67023814ADAA9863FCB97479 /* Pods-FortuneApp.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -71,9 +117,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35600DB5203DDCAA005CEAD9 /* Build configuration list for PBXNativeTarget "FortuneApp" */;
 			buildPhases = (
+				45257A707D4A9A94F68CD80F /* [CP] Check Pods Manifest.lock */,
 				35600D9F203DDCAA005CEAD9 /* Sources */,
 				35600DA0203DDCAA005CEAD9 /* Frameworks */,
 				35600DA1203DDCAA005CEAD9 /* Resources */,
+				2CE70BE5C2F8360A08CDB9D0 /* [CP] Embed Pods Frameworks */,
+				4C982338B8C1289047DCA8BB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -126,16 +175,72 @@
 				35600DB1203DDCAA005CEAD9 /* LaunchScreen.storyboard in Resources */,
 				35600DAE203DDCAA005CEAD9 /* Assets.xcassets in Resources */,
 				35600DAC203DDCAA005CEAD9 /* Main.storyboard in Resources */,
+				353BB1D3203DF13E0061CF48 /* data.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2CE70BE5C2F8360A08CDB9D0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FortuneApp/Pods-FortuneApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FortuneApp/Pods-FortuneApp-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45257A707D4A9A94F68CD80F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FortuneApp-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4C982338B8C1289047DCA8BB /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FortuneApp/Pods-FortuneApp-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		35600D9F203DDCAA005CEAD9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				353BB1CD203DE1C40061CF48 /* DataService.swift in Sources */,
 				35600DA9203DDCAA005CEAD9 /* ViewController.swift in Sources */,
 				35600DA7203DDCAA005CEAD9 /* AppDelegate.swift in Sources */,
 			);
@@ -272,11 +377,13 @@
 		};
 		35600DB6203DDCAA005CEAD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80726E9128EE82C4E3AF8969 /* Pods-FortuneApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M64J2FC2KN;
 				INFOPLIST_FILE = FortuneApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bobkexit.FortuneApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -287,11 +394,13 @@
 		};
 		35600DB7203DDCAA005CEAD9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67023814ADAA9863FCB97479 /* Pods-FortuneApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M64J2FC2KN;
 				INFOPLIST_FILE = FortuneApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bobkexit.FortuneApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
