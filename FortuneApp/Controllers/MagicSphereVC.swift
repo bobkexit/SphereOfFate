@@ -14,17 +14,13 @@ class MagicSphereVC: UIViewController {
     @IBOutlet weak var ballImgView: UIImageView!
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.predictionLbl.text = ""
-        
-        
     }
 
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
-        
         if event?.subtype == .motionShake {
             
             ballImgView.shake()
@@ -51,5 +47,3 @@ class MagicSphereVC: UIViewController {
         }
     }
 }
-
-

@@ -10,10 +10,11 @@
 		353BB1CD203DE1C40061CF48 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353BB1CC203DE1C40061CF48 /* DataService.swift */; };
 		353BB1D3203DF13E0061CF48 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = 353BB1D2203DF13E0061CF48 /* data.json */; };
 		35600DA7203DDCAA005CEAD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35600DA6203DDCAA005CEAD9 /* AppDelegate.swift */; };
-		35600DA9203DDCAA005CEAD9 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35600DA8203DDCAA005CEAD9 /* MainVC.swift */; };
+		35600DA9203DDCAA005CEAD9 /* MagicSphereVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35600DA8203DDCAA005CEAD9 /* MagicSphereVC.swift */; };
 		35600DAC203DDCAA005CEAD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAA203DDCAA005CEAD9 /* Main.storyboard */; };
 		35600DAE203DDCAA005CEAD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAD203DDCAA005CEAD9 /* Assets.xcassets */; };
 		35600DB1203DDCAA005CEAD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAF203DDCAA005CEAD9 /* LaunchScreen.storyboard */; };
+		3572F602203FF8FE00406F08 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572F601203FF8FE00406F08 /* UIViewExt.swift */; };
 		35BC1A50203F490500D12347 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC1A4F203F490500D12347 /* GradientView.swift */; };
 		DEA426D14AE43228363C64F4 /* Pods_FortuneApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45CB0E182D419F7837867841 /* Pods_FortuneApp.framework */; };
 /* End PBXBuildFile section */
@@ -23,11 +24,12 @@
 		353BB1D2203DF13E0061CF48 /* data.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		35600DA3203DDCAA005CEAD9 /* FortuneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FortuneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35600DA6203DDCAA005CEAD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		35600DA8203DDCAA005CEAD9 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
+		35600DA8203DDCAA005CEAD9 /* MagicSphereVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicSphereVC.swift; sourceTree = "<group>"; };
 		35600DAB203DDCAA005CEAD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35600DAD203DDCAA005CEAD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35600DB0203DDCAA005CEAD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35600DB2203DDCAA005CEAD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3572F601203FF8FE00406F08 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		35BC1A4F203F490500D12347 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		45CB0E182D419F7837867841 /* Pods_FortuneApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FortuneApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67023814ADAA9863FCB97479 /* Pods-FortuneApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FortuneApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FortuneApp/Pods-FortuneApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 		35600DA5203DDCAA005CEAD9 /* FortuneApp */ = {
 			isa = PBXGroup;
 			children = (
+				3572F600203FF8C200406F08 /* Extensions */,
 				353BB1CE203DE1D80061CF48 /* Services */,
 				35BC1A4D203F487700D12347 /* Views */,
 				35BC1A4E203F488700D12347 /* Controllers */,
@@ -104,6 +107,14 @@
 			path = FortuneApp;
 			sourceTree = "<group>";
 		};
+		3572F600203FF8C200406F08 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3572F601203FF8FE00406F08 /* UIViewExt.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		35BC1A4D203F487700D12347 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -115,7 +126,7 @@
 		35BC1A4E203F488700D12347 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				35600DA8203DDCAA005CEAD9 /* MainVC.swift */,
+				35600DA8203DDCAA005CEAD9 /* MagicSphereVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -260,7 +271,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				353BB1CD203DE1C40061CF48 /* DataService.swift in Sources */,
-				35600DA9203DDCAA005CEAD9 /* MainVC.swift in Sources */,
+				35600DA9203DDCAA005CEAD9 /* MagicSphereVC.swift in Sources */,
+				3572F602203FF8FE00406F08 /* UIViewExt.swift in Sources */,
 				35BC1A50203F490500D12347 /* GradientView.swift in Sources */,
 				35600DA7203DDCAA005CEAD9 /* AppDelegate.swift in Sources */,
 			);
