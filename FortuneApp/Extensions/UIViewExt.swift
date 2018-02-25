@@ -20,9 +20,14 @@ extension UIView {
         self.layer.add(animation, forKey: "shake")
     }
     
-    func fadeIn(duration: TimeInterval)  {
-        UIView.animate(withDuration: duration, delay: 0, options: .curveEaseIn, animations: {
+    func fadeIn(_ duration: TimeInterval = 1.0, delay: TimeInterval = 0.0, completion: @escaping ((Bool) -> Void) = {(finished: Bool) -> Void in}) {
+        UIView.animate(withDuration: duration, delay: delay, options: UIViewAnimationOptions.curveEaseIn, animations: {
             self.alpha = 1.0
-        }, completion: nil)
+        }, completion: completion)  }
+    
+    func fadeOut(_ duration: TimeInterval = 1.0, delay: TimeInterval = 0.0, completion: @escaping (Bool) -> Void = {(finished: Bool) -> Void in}) {
+        UIView.animate(withDuration: duration, delay: delay, options: UIViewAnimationOptions.curveEaseIn, animations: {
+            self.alpha = 0.0
+        }, completion: completion)
     }
 }

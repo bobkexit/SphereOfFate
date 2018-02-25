@@ -50,14 +50,14 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Crystal-ball" translatesAutoresizingMaskIntoConstraints="NO" id="ct2-di-bxI">
                                         <rect key="frame" x="8" y="8" width="359" height="375"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Awj-1N-RdV" customClass="RQShineLabel">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Awj-1N-RdV" customClass="RQShineLabel">
                                         <rect key="frame" x="152" y="177" width="71" height="38.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="217" id="Xfh-DV-RvZ"/>
-                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="248" id="sPz-ZQ-QDk"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="210" id="Xfh-DV-RvZ"/>
+                                            <constraint firstAttribute="width" relation="lessThanOrEqual" constant="210" id="sPz-ZQ-QDk"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="28"/>
-                                        <color key="textColor" red="0.45070099830627441" green="0.52012366056442261" blue="0.59085172414779663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.45098039215686275" green="0.52156862745098043" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -77,6 +77,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ljY-ZA-r4j">
                                         <rect key="frame" x="159.5" y="36" width="57" height="56"/>
                                         <state key="normal" image="Share Icon Solid"/>
+                                        <connections>
+                                            <action selector="shareButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="l2T-Kr-cbN"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -105,6 +108,7 @@
                     <connections>
                         <outlet property="hintLabel" destination="Dve-uz-Ebu" id="G5a-Bk-DuS"/>
                         <outlet property="predictionLabel" destination="Awj-1N-RdV" id="745-It-hu1"/>
+                        <outlet property="shareButton" destination="ljY-ZA-r4j" id="yFI-JX-DPw"/>
                         <outlet property="sphereImageView" destination="ct2-di-bxI" id="TSS-bn-0lq"/>
                     </connections>
                 </viewController>
