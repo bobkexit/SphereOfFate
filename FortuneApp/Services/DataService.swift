@@ -6,19 +6,62 @@
 //  Copyright © 2018 Николай Маторин. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import SwiftyJSON
 
 typealias CompletionHandler = (_ prediction: String?, _ error: Error?) -> ()
 
 class DataService {
+
     static let instance = DataService()
     
-    private init() {}
+    private var plistData: [String: Any]?
+   
+    private var lang: String {
+        get {
+            let pre = Locale.preferredLanguages.first
+            let lang = pre?.components(separatedBy: "-").first
+            return lang ?? ""
+        }
+    }
     
+    private init() {
+        loadPlistData()
+    }
+    
+    func loadPlistData() {
+        
+        guard let url = Bundle.main.url(forResource: "UILocalization", withExtension: "plist") else {
+            return
+        }
+        
+        plistData = NSDictionary(contentsOf: url) as? [String: Any]
+    }
+    
+    func getUIMessage(for key: String) -> String? {
+        guard let data = plistData?[lang] as? [String: Any] else {
+            return nil
+        }
+        
+        let message = data[key] as? String
+    
+        return message
+    }
+    
+    private func getPredictionArray() -> [String]? {
+        
+        guard let data = plistData?[lang] as? [String: Any] else {
+            return nil
+        }
+        
+        let array = data["predictions"] as? [String]
+        
+        return array
+    }
+        
     func makePrediction(completion: @escaping CompletionHandler) {
         
-        guard let url = Bundle.main.url(forResource: "data", withExtension: "json") else {
+        guard let url = Bundle.main.url(forResource: "data.\(lang)", withExtension: "json") else {
             return
         }
         
@@ -26,13 +69,14 @@ class DataService {
             let data = try Data(contentsOf: url)
             let json = try JSON(data: data)
             
-            let randomIndex = arc4random_uniform(UInt32(json.count))
-            
-            let prediction = json[String(randomIndex)]["ru"].stringValue
+            let array = json[keyForPredictionArray].arrayValue
+            let randomIndex = arc4random_uniform(UInt32(array.count))
+            let prediction = array[Int(randomIndex)].stringValue
             
             completion(prediction, nil)
             
         } catch {
+            debugPrint(error)
             completion(nil, error)
         }
         

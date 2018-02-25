@@ -10,12 +10,11 @@ import UIKit
 import RQShineLabel
 
 class MagicSphereVC: UIViewController {
-
+    
     @IBOutlet weak var hintLabel: UILabel!
     @IBOutlet weak var predictionLabel: RQShineLabel!
     @IBOutlet weak var sphereImageView: UIImageView!
     @IBOutlet weak var shareButton: UIButton!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,35 +22,49 @@ class MagicSphereVC: UIViewController {
         configureUIDefaults()
     }
     
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if event?.subtype == .motionShake {
+            NSObject.cancelPreviousPerformRequests(withTarget: self)
+            predictionLabel.fadeOut(1, delay: 0, completion: {_ in })
+        }
+    }
+    
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+        
         if event?.subtype == .motionShake {
             sphereImageView.shake()
-            
-            predictionLabel.fadeoutDuration = 2.0
-            predictionLabel.fadeOut()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 self.updatePredictionLabel()
                 self.updateShareButton()
+                
+                self.perform(#selector(self.fadeOutPrediction), with: nil, afterDelay: 5)
             })
         }
     }
     
+    @objc func fadeOutPrediction() {
+        predictionLabel.fadeOut(3, delay: 0, completion: {_ in })
+        shareButton.fadeOut(3, delay: 0, completion: {_ in})
+    }
+    
     func updatePredictionLabel() {
         
+        predictionLabel.alpha = 1
+        
         DataService.instance.makePrediction { (prediction, error) in
-            if let error = error {
-                self.predictionLabel.text = "Упс, кажется шар сломался..."
-                debugPrint(error)
+            
+            if error != nil && prediction == nil {
+                self.predictionLabel.text = DataService.instance.getUIMessage(for: keyForUIErrorMsg)
+            } else {
+                self.predictionLabel.text = prediction!
             }
             
-            guard let prediction = prediction else {
-                return
+            if let emptyString = self.predictionLabel.text?.isEmpty, !emptyString {
+                self.predictionLabel.shine()
             }
-            
-            self.predictionLabel.text = prediction
-            self.predictionLabel.shine()
         }
+        
     }
     
     func updateShareButton() {
@@ -65,13 +78,20 @@ class MagicSphereVC: UIViewController {
     }
     
     func configureUIDefaults() {
+        
         predictionLabel.text = ""
         predictionLabel.textColor = #colorLiteral(red: 0.4507009983, green: 0.5201236606, blue: 0.5908517241, alpha: 1)
         
         shareButton.isHidden = true
         shareButton.alpha = 0
         
+        
+        guard let hintText = DataService.instance.getUIMessage(for: keyForUIHintMsg) else {
+            return
+        }
+        
         hintLabel.alpha = 0
+        hintLabel.text = hintText
         hintLabel.fadeIn(2.0, delay: 0, completion: {_ in })
     }
     
@@ -81,7 +101,12 @@ class MagicSphereVC: UIViewController {
             return
         }
         
-        let textToShare = "Предсказание от FortuneApp: \"\(prediction)\""
+        var textToShare = "\"\(prediction)\""
+        
+        if let shareMsg = DataService.instance.getUIMessage(for: keyForShareText),
+            let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String {
+            textToShare += " \(shareMsg) \(appName)"
+        }
         
         let activityVC = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view

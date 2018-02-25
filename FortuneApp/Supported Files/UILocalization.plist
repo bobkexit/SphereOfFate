@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ru</key>
+	<dict>
+		<key>shareMessage</key>
+		<string>Предсказание выполнено с помощью</string>
+		<key>hintMessage</key>
+		<string>Потрясите сферу</string>
+		<key>errorMessage</key>
+		<string>Похоже магия больше не работает</string>
+	</dict>
+	<key>en</key>
+	<dict>
+		<key>shareMessage</key>
+		<string>Prediction made by</string>
+		<key>hintMessage</key>
+		<string>Shake the sphere</string>
+		<key>errorMessage</key>
+		<string>Looks like magic don&apos;t work anymore</string>
+	</dict>
+</dict>
+</plist>
