@@ -7,24 +7,26 @@
 //
 
 import UIKit
+import RQShineLabel
 
 class MagicSphereVC: UIViewController {
 
-    @IBOutlet weak var predictionLbl: UILabel!
-    @IBOutlet weak var ballImgView: UIImageView!
     
+    @IBOutlet weak var hintLabel: UILabel!
+    @IBOutlet weak var predictionLabel: RQShineLabel!
+    @IBOutlet weak var sphereImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.predictionLbl.text = ""
+        predictionLabel.text = ""
+        hintLabel.alpha = 0
+        hintLabel.fadeIn(duration: 2.0)
     }
-
+    
     override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
         if event?.subtype == .motionShake {
-            
-            ballImgView.shake()
-            
+            sphereImageView.shake()
             DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
                 self.updatePredictionLbl()
             })
@@ -32,10 +34,12 @@ class MagicSphereVC: UIViewController {
     }
     
     func updatePredictionLbl() {
-        predictionLbl.text = ""
+        
+        self.predictionLabel.fadeOut()
+        
         DataService.instance.makePrediction { (prediction, error) in
             if let error = error {
-                self.predictionLbl.text = "Упс, кажется шар сломался..."
+                self.predictionLabel.text = "Упс, кажется шар сломался..."
                 debugPrint(error)
             }
             
@@ -43,7 +47,8 @@ class MagicSphereVC: UIViewController {
                 return
             }
             
-            self.predictionLbl.text = prediction
+            self.predictionLabel.text = prediction
+            self.predictionLabel.shine()
         }
     }
 }

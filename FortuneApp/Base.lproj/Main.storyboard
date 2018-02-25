@@ -50,7 +50,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Crystal-ball" translatesAutoresizingMaskIntoConstraints="NO" id="ct2-di-bxI">
                                         <rect key="frame" x="8" y="8" width="359" height="375"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Awj-1N-RdV">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="6" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Awj-1N-RdV" customClass="RQShineLabel">
                                         <rect key="frame" x="152" y="177" width="71" height="38.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="217" id="Xfh-DV-RvZ"/>
@@ -103,8 +103,9 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="ballImgView" destination="ct2-di-bxI" id="TSS-bn-0lq"/>
-                        <outlet property="predictionLbl" destination="Awj-1N-RdV" id="745-It-hu1"/>
+                        <outlet property="hintLabel" destination="Dve-uz-Ebu" id="G5a-Bk-DuS"/>
+                        <outlet property="predictionLabel" destination="Awj-1N-RdV" id="745-It-hu1"/>
+                        <outlet property="sphereImageView" destination="ct2-di-bxI" id="TSS-bn-0lq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

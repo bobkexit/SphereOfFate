@@ -7,4 +7,5 @@ target 'FortuneApp' do
 
   # Pods for FortuneApp
   pod 'SwiftyJSON'
+  pod "RQShineLabel"
 end
