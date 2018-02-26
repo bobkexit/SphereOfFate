@@ -8,6 +8,7 @@
 
 import UIKit
 import RQShineLabel
+import FBSDKShareKit
 
 class MagicSphereVC: UIViewController {
     
@@ -39,6 +40,8 @@ class MagicSphereVC: UIViewController {
                 self.updateShareButton()
                 
                 self.perform(#selector(self.fadeOutPrediction), with: nil, afterDelay: 5)
+                
+               
             })
         }
     }
@@ -46,6 +49,7 @@ class MagicSphereVC: UIViewController {
     @objc func fadeOutPrediction() {
         predictionLabel.fadeOut(3, delay: 0, completion: {_ in })
         shareButton.fadeOut(3, delay: 0, completion: {_ in})
+        StoreReviewHelper.checkAndAskForReview()
     }
     
     func updatePredictionLabel() {
@@ -55,7 +59,7 @@ class MagicSphereVC: UIViewController {
         DataService.instance.makePrediction { (prediction, error) in
             
             if error != nil && prediction == nil {
-                self.predictionLabel.text = DataService.instance.getUIMessage(for: keyForUIErrorMsg)
+                self.predictionLabel.text = DataService.instance.getUIMessage(for: Config.keyForUIErrorMsg)
             } else {
                 self.predictionLabel.text = prediction!
             }
@@ -86,7 +90,7 @@ class MagicSphereVC: UIViewController {
         shareButton.alpha = 0
         
         
-        guard let hintText = DataService.instance.getUIMessage(for: keyForUIHintMsg) else {
+        guard let hintText = DataService.instance.getUIMessage(for: Config.keyForUIHintMsg) else {
             return
         }
         
@@ -101,19 +105,14 @@ class MagicSphereVC: UIViewController {
             return
         }
         
-        var textToShare = "\"\(prediction)\""
+        let sharePost = SharePost(withPrediction: prediction, FromController: self)
         
-        if let shareMsg = DataService.instance.getUIMessage(for: keyForShareText),
-            let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String {
-            textToShare += " \(shareMsg) \(appName)"
-        }
-        
-        let activityVC = UIActivityViewController(activityItems: [textToShare], applicationActivities: nil)
+        let activityVC = UIActivityViewController(activityItems: [sharePost], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
-        
         activityVC.excludedActivityTypes = [.airDrop, .postToFlickr, .postToVimeo, .saveToCameraRoll]
         
         self.present(activityVC, animated: true, completion: nil)
     }
-    
 }
+
+

@@ -8,9 +8,16 @@
 
 import Foundation
 
-let keyForUIHintMsg = "hintMessage"
-let keyForUIErrorMsg = "errorMessage"
-let keyForPredictionArray = "root"
-let keyForShareText = "shareMessage"
+enum Config {
+    static let keyForUIHintMsg = "hintMessage"
+    static let keyForUIErrorMsg = "errorMessage"
+    static let keyForPredictionArray = "root"
+    static let keyForShareText = "shareMessage"
+}
+
+enum UserDefaultsKeys {
+    static let appOpenedCount = "APP_OPENED_COUNT"
+}
+
 
 

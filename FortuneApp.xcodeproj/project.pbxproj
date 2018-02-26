@@ -15,6 +15,8 @@
 		35600DAC203DDCAA005CEAD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAA203DDCAA005CEAD9 /* Main.storyboard */; };
 		35600DAE203DDCAA005CEAD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAD203DDCAA005CEAD9 /* Assets.xcassets */; };
 		35600DB1203DDCAA005CEAD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAF203DDCAA005CEAD9 /* LaunchScreen.storyboard */; };
+		356AAEF3204448C300412161 /* SharePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356AAEF2204448C300412161 /* SharePost.swift */; };
+		356AAEF620444E0700412161 /* StoreReviewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356AAEF520444E0700412161 /* StoreReviewHelper.swift */; };
 		3572F602203FF8FE00406F08 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572F601203FF8FE00406F08 /* UIViewExt.swift */; };
 		3594B3682042F7E20006F77C /* data.ru.json in Resources */ = {isa = PBXBuildFile; fileRef = 3594B3672042F7E20006F77C /* data.ru.json */; };
 		3594B36A2042F7E90006F77C /* data.en.json in Resources */ = {isa = PBXBuildFile; fileRef = 3594B3692042F7E90006F77C /* data.en.json */; };
@@ -33,6 +35,8 @@
 		35600DAD203DDCAA005CEAD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35600DB0203DDCAA005CEAD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35600DB2203DDCAA005CEAD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		356AAEF2204448C300412161 /* SharePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePost.swift; sourceTree = "<group>"; };
+		356AAEF520444E0700412161 /* StoreReviewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreReviewHelper.swift; sourceTree = "<group>"; };
 		3572F601203FF8FE00406F08 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		3594B3672042F7E20006F77C /* data.ru.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.ru.json; sourceTree = "<group>"; };
 		3594B3692042F7E90006F77C /* data.en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.en.json; sourceTree = "<group>"; };
@@ -76,6 +80,7 @@
 				3594B3692042F7E90006F77C /* data.en.json */,
 				3594B3672042F7E20006F77C /* data.ru.json */,
 				35065FEB2042DEC1001E6AE1 /* UILocalization.plist */,
+				356AAEF2204448C300412161 /* SharePost.swift */,
 			);
 			path = "Supported Files";
 			sourceTree = "<group>";
@@ -109,11 +114,12 @@
 		35600DA5203DDCAA005CEAD9 /* FortuneApp */ = {
 			isa = PBXGroup;
 			children = (
+				35BC1A4D203F487700D12347 /* Views */,
+				35BC1A4E203F488700D12347 /* Controllers */,
+				356AAEF420444DA300412161 /* Helpers */,
 				35065FED2042F079001E6AE1 /* Utilities */,
 				353BB1CE203DE1D80061CF48 /* Services */,
 				3572F600203FF8C200406F08 /* Extensions */,
-				35BC1A4D203F487700D12347 /* Views */,
-				35BC1A4E203F488700D12347 /* Controllers */,
 				353BB1C9203DE1640061CF48 /* Supported Files */,
 				35600DA6203DDCAA005CEAD9 /* AppDelegate.swift */,
 				35600DAA203DDCAA005CEAD9 /* Main.storyboard */,
@@ -122,6 +128,14 @@
 				35600DB2203DDCAA005CEAD9 /* Info.plist */,
 			);
 			path = FortuneApp;
+			sourceTree = "<group>";
+		};
+		356AAEF420444DA300412161 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				356AAEF520444E0700412161 /* StoreReviewHelper.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		3572F600203FF8C200406F08 /* Extensions */ = {
@@ -238,11 +252,19 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FortuneApp/Pods-FortuneApp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RQShineLabel/RQShineLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RQShineLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
@@ -292,9 +314,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				353BB1CD203DE1C40061CF48 /* DataService.swift in Sources */,
+				356AAEF620444E0700412161 /* StoreReviewHelper.swift in Sources */,
 				35600DA9203DDCAA005CEAD9 /* MagicSphereVC.swift in Sources */,
 				3572F602203FF8FE00406F08 /* UIViewExt.swift in Sources */,
 				35BC1A50203F490500D12347 /* GradientView.swift in Sources */,
+				356AAEF3204448C300412161 /* SharePost.swift in Sources */,
 				35600DA7203DDCAA005CEAD9 /* AppDelegate.swift in Sources */,
 				35065FEF2042F092001E6AE1 /* Constants.swift in Sources */,
 			);
@@ -370,7 +394,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -421,7 +445,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

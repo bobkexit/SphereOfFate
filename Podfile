@@ -8,4 +8,7 @@ target 'FortuneApp' do
   # Pods for FortuneApp
   pod 'SwiftyJSON'
   pod "RQShineLabel"
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+  pod 'FBSDKShareKit'
 end

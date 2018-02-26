@@ -69,7 +69,7 @@ class DataService {
             let data = try Data(contentsOf: url)
             let json = try JSON(data: data)
             
-            let array = json[keyForPredictionArray].arrayValue
+            let array = json[Config.keyForPredictionArray].arrayValue
             let randomIndex = arc4random_uniform(UInt32(array.count))
             let prediction = array[Int(randomIndex)].stringValue
             
@@ -80,5 +80,17 @@ class DataService {
             completion(nil, error)
         }
         
+    }
+    
+    func GetSharingMessage(forPrediction prediction: String) -> String {
+        
+        var textToShare = "\"\(prediction)\""
+        
+        if let shareMsg = DataService.instance.getUIMessage(for: Config.keyForShareText),
+            let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String {
+            textToShare += " \(shareMsg) \(appName)"
+        }
+        
+        return textToShare
     }
 }
