@@ -30,8 +30,6 @@ class SharePost: NSObject, UIActivityItemSource {
             return nil
         }
         
-        let textToShare = DataService.instance.GetSharingMessage(forPrediction: prediction)
-        
         if activityType == .postToFacebook {
             activityViewController.dismiss(animated: true, completion: {
                 self.postToFacebook()
@@ -39,15 +37,15 @@ class SharePost: NSObject, UIActivityItemSource {
             return nil
         }
         
-        return textToShare
+        return GetShareMessage(forPrediction: prediction)
     }
     
-    func postToFacebook() {
+    fileprivate func postToFacebook() {
         
         guard let prediction = prediction, let controller = controller, let url = URL(string: "https://www.google.com/")
             else { return }
         
-        let textToShare = DataService.instance.GetSharingMessage(forPrediction: prediction)
+        let textToShare = GetShareMessage(forPrediction: prediction)
         
         let content = FBSDKShareLinkContent()
         content.contentURL = url
@@ -64,5 +62,15 @@ class SharePost: NSObject, UIActivityItemSource {
         }
         
         shareDialog.show()
+    }
+    
+    fileprivate func GetShareMessage(forPrediction prediction: String) -> String {
+        var shareMessage = "\"\(prediction)\""
+        
+        if let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String {
+            shareMessage += " - \(appName)"
+        }
+        
+        return shareMessage
     }
 }

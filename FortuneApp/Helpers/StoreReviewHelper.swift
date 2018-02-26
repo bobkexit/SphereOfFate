@@ -17,6 +17,7 @@ struct StoreReviewHelper {
         var appOpenCount = defaults.integer(forKey: UserDefaultsKeys.appOpenedCount)
         appOpenCount += 1
         defaults.set(appOpenCount, forKey: UserDefaultsKeys.appOpenedCount)
+        defaults.set(false, forKey: UserDefaultsKeys.wasReviewRequestInCurrentSession)
     }
     static func checkAndAskForReview() { // call this whenever appropriate
         // this will not be shown everytime. Apple has some internal logic on how to show this.
@@ -38,11 +39,20 @@ struct StoreReviewHelper {
         
     }
     fileprivate func requestReview() {
+        
+        let wasReviewRequest = StoreReviewHelper.defaults.bool(forKey: UserDefaultsKeys.wasReviewRequestInCurrentSession)
+        
+        if wasReviewRequest {
+           return
+        }
+        
         if #available(iOS 10.3, *) {
             SKStoreReviewController.requestReview()
         } else {
             // Fallback on earlier versions
             // Try any other 3rd party or manual method here.
         }
+        
+        StoreReviewHelper.defaults.set(true, forKey: UserDefaultsKeys.wasReviewRequestInCurrentSession)
     }
 }

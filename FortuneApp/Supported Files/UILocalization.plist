@@ -4,18 +4,14 @@
 <dict>
 	<key>ru</key>
 	<dict>
-		<key>shareMessage</key>
-		<string>Предсказание выполнено с помощью</string>
-		<key>hintMessage</key>
+		<key>hintLabel</key>
 		<string>Потрясите сферу</string>
 		<key>errorMessage</key>
 		<string>Похоже магия больше не работает</string>
 	</dict>
 	<key>en</key>
 	<dict>
-		<key>shareMessage</key>
-		<string>Prediction made by</string>
-		<key>hintMessage</key>
+		<key>hintLabel</key>
 		<string>Shake the sphere</string>
 		<key>errorMessage</key>
 		<string>Looks like magic don&apos;t work anymore</string>
