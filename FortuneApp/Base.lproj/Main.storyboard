@@ -50,13 +50,13 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Crystal-ball" translatesAutoresizingMaskIntoConstraints="NO" id="ct2-di-bxI">
                                         <rect key="frame" x="8" y="8" width="359" height="375"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="prediction" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Awj-1N-RdV" customClass="RQShineLabel">
-                                        <rect key="frame" x="126.5" y="177.5" width="123" height="36"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="prediction" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="6" baselineAdjustment="alignBaselines" minimumFontSize="14" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Awj-1N-RdV" customClass="RQShineLabel">
+                                        <rect key="frame" x="136" y="181" width="104" height="30.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="lessThanOrEqual" constant="210" id="Xfh-DV-RvZ"/>
                                             <constraint firstAttribute="width" relation="lessThanOrEqual" constant="210" id="sPz-ZQ-QDk"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="26"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
                                         <color key="textColor" red="0.45098039215686275" green="0.52156862745098043" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
