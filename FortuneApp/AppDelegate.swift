@@ -16,10 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
        
-        StoreReviewHelper.shared.incrementAppLaunchesCount()
-        StoreReviewHelper.shared.resetAppRatingShown()
-        StoreReviewHelper.shared.checkAndAskForReview()
-        
+        RateAppHelper.shared.displayRatingsPromptIfRequired()
+       
         return true
     }
 

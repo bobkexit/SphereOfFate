@@ -1,0 +1,8 @@
+/* 
+  Localizable.strings
+  FortuneApp
+
+  Created by Николай Маторин on 28.02.2018.
+  Copyright © 2018 Николай Маторин. All rights reserved.
+*/
+"errorMessage" = "Looks like somthing does't work :-(";

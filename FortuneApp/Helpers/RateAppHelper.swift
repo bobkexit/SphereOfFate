@@ -9,9 +9,9 @@
 import Foundation
 import StoreKit
 
-class StoreReviewHelper {
+class RateAppHelper {
     
-    public static var shared = StoreReviewHelper()
+    public static var shared = RateAppHelper()
 
     fileprivate let userDefaults = UserDefaults.standard
     
@@ -19,35 +19,21 @@ class StoreReviewHelper {
         
     }
     
-    func incrementAppLaunchesCount() { // called from appdelegate didfinishLaunchingWithOptions:
-        let appLaunchesCount = userDefaults.integer(forKey: UserDefaultsKeys.appLaunchesCount) + 1
-        userDefaults.set(appLaunchesCount, forKey: UserDefaultsKeys.appLaunchesCount)
-    }
-    
-    func checkAndAskForReview() {
-        let appLaunchesCount = userDefaults.integer(forKey: UserDefaultsKeys.appLaunchesCount)
+    // called from appdelegate didfinishLaunchingWithOptions:
+    func displayRatingsPromptIfRequired() {
+        incrementLaunchesCount()
+        
+        let appLaunchesCount = getLaunchesCount()
         
         switch appLaunchesCount {
         case 3,10,50:
-            StoreReviewHelper().requestReview()
+            RateAppHelper().requestReview()
         case _ where appLaunchesCount != 0 && appLaunchesCount%100 == 0:
-            StoreReviewHelper().requestReview()
+            RateAppHelper().requestReview()
         default:
             print("App run count is : \(appLaunchesCount)")
             break;
         }
-    }
-    
-    func setAppRatingShown() {
-       userDefaults.set(true, forKey: UserDefaultsKeys.appRatingShown)
-    }
-    
-    func resetAppRatingShown() {
-       userDefaults.set(false, forKey: UserDefaultsKeys.appRatingShown)
-    }
-    
-    func hasShownAppRating() -> Bool {
-        return userDefaults.bool(forKey: UserDefaultsKeys.appRatingShown)
     }
     
     func rateApp(completion: @escaping (_ hasError: Bool) -> Void) {
@@ -62,6 +48,15 @@ class StoreReviewHelper {
         }
     }
     
+    fileprivate func incrementLaunchesCount() {
+         let appLaunchesCount = getLaunchesCount()
+         userDefaults.set(appLaunchesCount + 1, forKey: UserDefaultsKeys.appLaunchesCount)
+    }
+    
+    fileprivate func getLaunchesCount() -> Int {
+        return userDefaults.integer(forKey: UserDefaultsKeys.appLaunchesCount)
+    }
+    
     fileprivate func openUrl(_ urlString: String) {
         guard let url = URL(string: urlString) else {
             return
@@ -74,14 +69,11 @@ class StoreReviewHelper {
     }
     
     fileprivate func requestReview() {
-        if hasShownAppRating() { return }
-        
         if #available(iOS 10.3, *) {
             SKStoreReviewController.requestReview()
         } else {
             // Fallback on earlier versions
             // Try any other 3rd party or manual method here.
         }
-        setAppRatingShown()
     }
 }

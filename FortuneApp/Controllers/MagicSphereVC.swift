@@ -63,9 +63,11 @@ class MagicSphereVC: UIViewController {
     }
     
     @IBAction func rateAppButtonPressed(_ sender: Any) {
-        StoreReviewHelper.shared.rateApp { (hasError) in
+        RateAppHelper.shared.rateApp { (hasError) in
             if !hasError { return }
-            self.predictionLabel.text = LocalizationHelper.shared.getUIText(for: UILocalizationKeys.errorMesssageForUser)
+            //TODO: test and delete
+            //self.predictionLabel.text = LocalizationHelper.shared.getUIText(for: UILocalizationKeys.errorMesssageForUser)
+            self.predictionLabel.text = String(key: .errorMessage)
             self.predictionLabel.shine()
             self.perform(#selector(self.fadeOutUIElements), with: nil, afterDelay: 5)
         }
@@ -75,7 +77,7 @@ class MagicSphereVC: UIViewController {
    
     fileprivate func setupView() {
         predictionLabel.text = ""
-        predictionLabel.textColor = UIColors.predictionTextColor
+        predictionLabel.textColor = Colors.predictionTextColor
         
         shareButton.isHidden = true
         shareButton.alpha = 0
@@ -84,7 +86,6 @@ class MagicSphereVC: UIViewController {
         rateAppButton.alpha = 0
         
         hintLabel.alpha = 0
-        hintLabel.text = LocalizationHelper.shared.getUIText(for: UILocalizationKeys.hintLabel)
         hintLabel.fadeIn(2.0, delay: 0, completion: {_ in })
     }
     
@@ -105,7 +106,7 @@ class MagicSphereVC: UIViewController {
         predictionLabel.alpha = 1
         PredictionService.makePrediction { (prediction, error) in
             if error != nil || prediction == nil {
-                self.predictionLabel.text = LocalizationHelper.shared.getUIText(for: UILocalizationKeys.errorMesssageForUser)
+                self.predictionLabel.text = String(key: .errorMessage)
             } else {
                 self.predictionLabel.text = prediction!
             }

@@ -42,8 +42,4 @@ class FortuneAppTests: XCTestCase {
         }
     }
     
-    func testLocalizationHelper() {
-        
-    }
-    
 }

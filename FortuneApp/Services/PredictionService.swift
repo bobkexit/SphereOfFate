@@ -13,9 +13,16 @@ typealias CompletionHandler = (_ prediction: String?, _ error: Error?) -> ()
 
 class PredictionService {
     
-   static func makePrediction(completion: @escaping CompletionHandler) {
-        guard let url = Bundle.main.url(forResource: Config.dataFileName, withExtension: Config.dataFileExtension) else {
-            return
+    static func makePrediction(completion: @escaping CompletionHandler) {
+        
+        guard let pre = Locale.current.languageCode, let locale = pre.components(separatedBy: "-").first else {
+            fatalError("Can't get current language")
+        }
+        
+        let localizedDataFile = "\(Config.dataFileName).\(locale.lowercased())"
+        
+        guard let url = Bundle.main.url(forResource: localizedDataFile, withExtension: Config.dataFileExtension) else {
+            fatalError("Can't get url for resource: \(localizedDataFile)")
         }
         
         do {
