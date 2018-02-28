@@ -15,8 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        StoreReviewHelper.incrementAppOpenedCount()
+       
+        StoreReviewHelper.shared.incrementAppLaunchesCount()
+        StoreReviewHelper.shared.resetAppRatingShown()
+        StoreReviewHelper.shared.checkAndAskForReview()
+        
         return true
     }
 

@@ -12,23 +12,25 @@ enum Config {
     static let localizationFileName = "UILocalization"
     static let localizationFileExtension = "plist"
         
-    static let dataFileName = "data.\(LocalizationHelper.getLocale())"
+    static let dataFileName = "data.\(LocalizationHelper.shared.getLocale())"
     static let dataFileExtension = "json"
     
     static let keyForPredictionArray = "root"
     
     static let numberOfTriesPerHour = 5
     static let defaultLocale = "ru"
+    
+    static let appId = "APP_ID"
 }
 
 enum UILocalizationKeys {
-    static let hintLabel = "hintLabel"
-    static let errorMesssageForUser = "errorMessage"
+    static let hintLabel = "HINT_LABEL"
+    static let errorMesssageForUser = "ERROR_MESSAGE"
 }
 
 enum UserDefaultsKeys {
-    static let appOpenedCount = "APP_OPENED_COUNT"
-    static let wasReviewRequestInCurrentSession = "WAS_REVIEW_REQUEST_IN_CURRENT_SESSION"
+    static let appLaunchesCount = "APP_LAUNCHES_COUNT"
+    static let appRatingShown = "APP_RATING_SHOWN"
 }
 
 enum UIColors {

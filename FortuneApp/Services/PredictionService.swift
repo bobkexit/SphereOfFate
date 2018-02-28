@@ -11,10 +11,9 @@ import SwiftyJSON
 
 typealias CompletionHandler = (_ prediction: String?, _ error: Error?) -> ()
 
-struct PredictionService {
+class PredictionService {
     
    static func makePrediction(completion: @escaping CompletionHandler) {
-    
         guard let url = Bundle.main.url(forResource: Config.dataFileName, withExtension: Config.dataFileExtension) else {
             return
         }

@@ -9,42 +9,72 @@
 import Foundation
 import StoreKit
 
-struct StoreReviewHelper {
+class StoreReviewHelper {
     
-    static let defaults = UserDefaults.standard
+    public static var shared = StoreReviewHelper()
+
+    fileprivate let userDefaults = UserDefaults.standard
     
-    static func incrementAppOpenedCount() { // called from appdelegate didfinishLaunchingWithOptions:
-        var appOpenCount = defaults.integer(forKey: UserDefaultsKeys.appOpenedCount)
-        appOpenCount += 1
-        defaults.set(appOpenCount, forKey: UserDefaultsKeys.appOpenedCount)
-        defaults.set(false, forKey: UserDefaultsKeys.wasReviewRequestInCurrentSession)
+    private init() {
+        
     }
-    static func checkAndAskForReview() { // call this whenever appropriate
-        // this will not be shown everytime. Apple has some internal logic on how to show this.
+    
+    func incrementAppLaunchesCount() { // called from appdelegate didfinishLaunchingWithOptions:
+        let appLaunchesCount = userDefaults.integer(forKey: UserDefaultsKeys.appLaunchesCount) + 1
+        userDefaults.set(appLaunchesCount, forKey: UserDefaultsKeys.appLaunchesCount)
+    }
+    
+    func checkAndAskForReview() {
+        let appLaunchesCount = userDefaults.integer(forKey: UserDefaultsKeys.appLaunchesCount)
         
-        guard let appOpenCount = defaults.value(forKey: UserDefaultsKeys.appOpenedCount) as? Int else {
-            defaults.set(1, forKey: UserDefaultsKeys.appOpenedCount)
-            return
-        }
-        
-        switch appOpenCount {
-        case 10,50:
+        switch appLaunchesCount {
+        case 3,10,50:
             StoreReviewHelper().requestReview()
-        case _ where appOpenCount%100 == 0 :
+        case _ where appLaunchesCount != 0 && appLaunchesCount%100 == 0:
             StoreReviewHelper().requestReview()
         default:
-            print("App run count is : \(appOpenCount)")
+            print("App run count is : \(appLaunchesCount)")
             break;
         }
-        
     }
-    fileprivate func requestReview() {
-        
-        let wasReviewRequest = StoreReviewHelper.defaults.bool(forKey: UserDefaultsKeys.wasReviewRequestInCurrentSession)
-        
-        if wasReviewRequest {
-           return
+    
+    func setAppRatingShown() {
+       userDefaults.set(true, forKey: UserDefaultsKeys.appRatingShown)
+    }
+    
+    func resetAppRatingShown() {
+       userDefaults.set(false, forKey: UserDefaultsKeys.appRatingShown)
+    }
+    
+    func hasShownAppRating() -> Bool {
+        return userDefaults.bool(forKey: UserDefaultsKeys.appRatingShown)
+    }
+    
+    func rateApp(completion: @escaping (_ hasError: Bool) -> Void) {
+        if let url = Bundle.main.url(forResource: "Info", withExtension: "plist"), let dict = NSDictionary(contentsOf: url) as? [String: AnyObject] {
+            guard let appId = dict[Config.appId] as? String, !appId.isEmpty else {
+                print("Key APP_ID not found in Info.plist ")
+                completion(true)
+                return
+            }
+            openUrl("itms-apps://itunes.apple.com/app/\(appId)")
+            completion(false)
         }
+    }
+    
+    fileprivate func openUrl(_ urlString: String) {
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        if #available(iOS 10.0, *) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        } else {
+            UIApplication.shared.openURL(url)
+        }
+    }
+    
+    fileprivate func requestReview() {
+        if hasShownAppRating() { return }
         
         if #available(iOS 10.3, *) {
             SKStoreReviewController.requestReview()
@@ -52,7 +82,6 @@ struct StoreReviewHelper {
             // Fallback on earlier versions
             // Try any other 3rd party or manual method here.
         }
-        
-        StoreReviewHelper.defaults.set(true, forKey: UserDefaultsKeys.wasReviewRequestInCurrentSession)
+        setAppRatingShown()
     }
 }

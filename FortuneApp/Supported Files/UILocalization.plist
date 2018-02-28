@@ -2,19 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>ru</key>
+	<key>RU</key>
 	<dict>
-		<key>hintLabel</key>
-		<string>Потрясите сферу</string>
-		<key>errorMessage</key>
-		<string>Похоже магия больше не работает</string>
+		<key>HINT_LABEL</key>
+		<string>Потрясите шар</string>
+		<key>ERROR_MESSAGE</key>
+		<string>Похоже что, что-то не работает :-(</string>
 	</dict>
-	<key>en</key>
+	<key>EN</key>
 	<dict>
-		<key>hintLabel</key>
+		<key>HINT_LABEL</key>
 		<string>Shake the sphere</string>
-		<key>errorMessage</key>
-		<string>Looks like magic don&apos;t work anymore</string>
+		<key>ERROR_MESSAGE</key>
+		<string>Looks like somthing don&apos;t work :-(</string>
 	</dict>
 </dict>
 </plist>

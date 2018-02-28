@@ -10,38 +10,35 @@ import UIKit
 
 class LocalizationHelper {
     
-    static var sharedInstance = LocalizationHelper()
+    static var shared = LocalizationHelper()
     
     fileprivate lazy var localizationDictionary: [String: Any]? = getlocalizationDictionary()
     
     private init() {
     }
 
-    fileprivate func getlocalizationDictionary() -> [String: Any]? {
+    fileprivate func getlocalizationDictionary() -> [String: AnyObject]? {
         guard let url = Bundle.main.url(forResource: Config.localizationFileName, withExtension: Config.localizationFileExtension) else {
             return nil
         }
         
-        return NSDictionary(contentsOf: url) as? [String: Any]
+        return NSDictionary(contentsOf: url) as? [String: AnyObject]
     }
     
-    static func getLocale() -> String {
+    func getLocale() -> String {
         let pre = Locale.preferredLanguages.first
         let lang = pre?.components(separatedBy: "-").first
         return lang ?? Config.defaultLocale
     }
     
-    static func getUIText(for key: String) -> String {
+    func getUIText(for key: String) -> String {
+        let loc = getLocale().uppercased()
         
-        let loc = LocalizationHelper.getLocale()
-        
-        guard let dict = LocalizationHelper.sharedInstance.localizationDictionary?[loc] as? [String: Any] else {
+        guard let dict = localizationDictionary?[loc] as? [String: AnyObject], let text = dict[key] as? String else {
+            print("Localization for key \(key) not found")
             return ""
         }
-        guard let text = dict[key] as? String else {
-            return ""
-        }
-        
+    
         return text
     }
 }

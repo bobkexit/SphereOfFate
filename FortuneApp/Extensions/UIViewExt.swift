@@ -9,7 +9,6 @@
 import UIKit
 
 extension UIView {
-    
     func shake(duration: TimeInterval = 0.05, shakeCount: Float = 6, xValue: CGFloat = 12, yValue: CGFloat = 0){
         let animation = CABasicAnimation(keyPath: "position")
         animation.duration = duration

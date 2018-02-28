@@ -18,6 +18,8 @@ class MagicSphereVC: UIViewController {
     @IBOutlet weak var predictionLabel: RQShineLabel!
     @IBOutlet weak var sphereImageView: UIImageView!
     @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var rateAppButton: UIButton!
+    
     
     //MARK: - View Life Cycle
     
@@ -60,6 +62,15 @@ class MagicSphereVC: UIViewController {
         self.present(activityVC, animated: true, completion: nil)
     }
     
+    @IBAction func rateAppButtonPressed(_ sender: Any) {
+        StoreReviewHelper.shared.rateApp { (hasError) in
+            if !hasError { return }
+            self.predictionLabel.text = LocalizationHelper.shared.getUIText(for: UILocalizationKeys.errorMesssageForUser)
+            self.predictionLabel.shine()
+            self.perform(#selector(self.fadeOutUIElements), with: nil, afterDelay: 5)
+        }
+    }
+    
     //MARK: View Methods
    
     fileprivate func setupView() {
@@ -69,14 +80,17 @@ class MagicSphereVC: UIViewController {
         shareButton.isHidden = true
         shareButton.alpha = 0
         
+        rateAppButton.isHidden = true
+        rateAppButton.alpha = 0
+        
         hintLabel.alpha = 0
-        hintLabel.text = LocalizationHelper.getUIText(for: UILocalizationKeys.hintLabel)
+        hintLabel.text = LocalizationHelper.shared.getUIText(for: UILocalizationKeys.hintLabel)
         hintLabel.fadeIn(2.0, delay: 0, completion: {_ in })
     }
     
     fileprivate func updateView() {
         updatePredictionLabel()
-        updateShareButton()
+        updateButtons()
     }
     
     //MARK: Controller Methods
@@ -84,14 +98,14 @@ class MagicSphereVC: UIViewController {
     @objc func fadeOutUIElements() {
         predictionLabel.fadeOut(3, delay: 0, completion: {_ in })
         shareButton.fadeOut(3, delay: 0, completion: {_ in})
-        StoreReviewHelper.checkAndAskForReview()
+        rateAppButton.fadeOut(3, delay: 0, completion: {_ in})
     }
     
     fileprivate func updatePredictionLabel() {
         predictionLabel.alpha = 1
         PredictionService.makePrediction { (prediction, error) in
             if error != nil || prediction == nil {
-                self.predictionLabel.text = LocalizationHelper.getUIText(for: UILocalizationKeys.errorMesssageForUser)
+                self.predictionLabel.text = LocalizationHelper.shared.getUIText(for: UILocalizationKeys.errorMesssageForUser)
             } else {
                 self.predictionLabel.text = prediction!
             }
@@ -102,13 +116,19 @@ class MagicSphereVC: UIViewController {
         }
     }
     
-    fileprivate func updateShareButton() {
+    fileprivate func updateButtons() {
         if let emptyText = predictionLabel.text?.isEmpty, !emptyText {
             shareButton.isHidden = false
             shareButton.fadeIn(2.0, delay: 0, completion: {_ in })
+            
+            rateAppButton.isHidden = false
+            rateAppButton.fadeIn(2.0, delay: 0, completion: {_ in })
         } else {
             shareButton.isHidden = true
             shareButton.alpha = 0
+            
+            rateAppButton.isHidden = true
+            rateAppButton.alpha = 0
         }
     }
 }
