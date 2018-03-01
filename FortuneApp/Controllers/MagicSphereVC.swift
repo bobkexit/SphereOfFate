@@ -63,14 +63,7 @@ class MagicSphereVC: UIViewController {
     }
     
     @IBAction func rateAppButtonPressed(_ sender: Any) {
-        RateAppHelper.shared.rateApp { (hasError) in
-            if !hasError { return }
-            //TODO: test and delete
-            //self.predictionLabel.text = LocalizationHelper.shared.getUIText(for: UILocalizationKeys.errorMesssageForUser)
-            self.predictionLabel.text = String(key: .errorMessage)
-            self.predictionLabel.shine()
-            self.perform(#selector(self.fadeOutUIElements), with: nil, afterDelay: 5)
-        }
+        RateAppHelper.shared.requestReview()
     }
     
     //MARK: View Methods

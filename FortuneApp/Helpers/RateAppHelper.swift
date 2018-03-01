@@ -68,7 +68,7 @@ class RateAppHelper {
         }
     }
     
-    fileprivate func requestReview() {
+    func requestReview() {
         if #available(iOS 10.3, *) {
             SKStoreReviewController.requestReview()
         } else {
