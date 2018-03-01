@@ -97,7 +97,7 @@ class MagicSphereVC: UIViewController {
     
     fileprivate func updatePredictionLabel() {
         predictionLabel.alpha = 1
-        PredictionService.makePrediction { (prediction, error) in
+        PredictionService.shared.makePrediction { (prediction, error) in
             if error != nil || prediction == nil {
                 self.predictionLabel.text = String(key: .errorMessage)
             } else {
