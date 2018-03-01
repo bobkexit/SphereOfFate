@@ -24,7 +24,7 @@ class FortuneAppTests: XCTestCase {
     }
     
     func testMakePrediction() {
-        PredictionService.makePrediction { (prediction, error) in
+        PredictionService.shared.makePrediction { (prediction, error) in
            
             XCTAssertNil(error, error!.localizedDescription)
             
@@ -36,7 +36,7 @@ class FortuneAppTests: XCTestCase {
     
     func testMakePredictionPerformance() {
         self.measure {
-            PredictionService.makePrediction(completion: { (prediction, error) in
+            PredictionService.shared.makePrediction(completion: { (prediction, error) in
                 
             })
         }

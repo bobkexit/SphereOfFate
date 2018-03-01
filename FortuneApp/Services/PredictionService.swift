@@ -13,7 +13,13 @@ typealias CompletionHandler = (_ prediction: String?, _ error: Error?) -> ()
 
 class PredictionService {
     
-    static func makePrediction(completion: @escaping CompletionHandler) {
+    public static var shared = PredictionService()
+    
+    private init() {
+        
+    }
+    
+    func makePrediction(completion: @escaping CompletionHandler) {
         
         guard let pre = Locale.current.languageCode, let locale = pre.components(separatedBy: "-").first else {
             fatalError("Can't get current language")
