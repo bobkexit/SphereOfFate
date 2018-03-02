@@ -13,7 +13,7 @@ enum Config {
     static let dataFileExtension = "json"
     
     static let keyForPredictionArray = "root"
-    static let appId = "APP_ID"
+    static let appStoreUrl = "https://itunes.apple.com/app/id1354453250"
 }
 
 enum LocalizationKeys: String {

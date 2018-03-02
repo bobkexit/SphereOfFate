@@ -42,7 +42,7 @@ class SharePost: NSObject, UIActivityItemSource {
     
     fileprivate func postToFacebook() {
         
-        guard let prediction = prediction, let controller = controller, let url = URL(string: "https://www.google.com/")
+        guard let prediction = prediction, let controller = controller, let url = URL(string: Config.appStoreUrl)
             else { return }
         
         let textToShare = GetShareMessage(forPrediction: prediction)
