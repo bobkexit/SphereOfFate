@@ -36,18 +36,6 @@ class RateAppHelper {
         }
     }
     
-    func rateApp(completion: @escaping (_ hasError: Bool) -> Void) {
-        if let url = Bundle.main.url(forResource: "Info", withExtension: "plist"), let dict = NSDictionary(contentsOf: url) as? [String: AnyObject] {
-            guard let appId = dict[Config.appId] as? String, !appId.isEmpty else {
-                print("Key APP_ID not found in Info.plist ")
-                completion(true)
-                return
-            }
-            openUrl("itms-apps://itunes.apple.com/app/\(appId)")
-            completion(false)
-        }
-    }
-    
     fileprivate func incrementLaunchesCount() {
          let appLaunchesCount = getLaunchesCount()
          userDefaults.set(appLaunchesCount + 1, forKey: UserDefaultsKeys.appLaunchesCount)
