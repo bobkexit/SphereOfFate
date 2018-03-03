@@ -58,7 +58,7 @@ class MagicSphereVC: UIViewController {
         let activityVC = UIActivityViewController(activityItems: [sharePost], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
         activityVC.excludedActivityTypes = [.airDrop, .postToFlickr, .postToVimeo, .saveToCameraRoll]
-        
+    
         self.present(activityVC, animated: true, completion: nil)
     }
     
