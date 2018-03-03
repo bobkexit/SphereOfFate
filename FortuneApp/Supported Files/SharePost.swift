@@ -65,11 +65,7 @@ class SharePost: NSObject, UIActivityItemSource {
     }
     
     fileprivate func GetShareMessage(forPrediction prediction: String) -> String {
-        var shareMessage = "\"\(prediction)\""
-        
-        if let appName = Bundle.main.infoDictionary?[kCFBundleNameKey as String] as? String {
-            shareMessage += " - \(appName)"
-        }
+        let shareMessage = "\"\(prediction)\" - \(String(key: LocalizationKeys.appNameInAppStore))"
         
         return shareMessage
     }
