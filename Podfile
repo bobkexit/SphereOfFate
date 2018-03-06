@@ -7,7 +7,7 @@ target 'FortuneApp' do
 
   # Pods for FortuneApp
   pod 'SwiftyJSON'
-  pod "RQShineLabel"
+  pod "RQShineLabel", :git => 'git@github.com:bobkexit/RQShineLabel.git'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
