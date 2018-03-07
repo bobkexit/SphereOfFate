@@ -53,7 +53,7 @@ class MagicSphereVC: UIViewController {
             return
         }
         
-        let sharePost = SharePost(withPrediction: prediction, FromController: self)
+        let sharePost = UIActivity(withPrediction: prediction, FromController: self)
         
         let activityVC = UIActivityViewController(activityItems: [sharePost], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
