@@ -14,7 +14,7 @@
 		35600DAC203DDCAA005CEAD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAA203DDCAA005CEAD9 /* Main.storyboard */; };
 		35600DAE203DDCAA005CEAD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAD203DDCAA005CEAD9 /* Assets.xcassets */; };
 		35600DB1203DDCAA005CEAD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAF203DDCAA005CEAD9 /* LaunchScreen.storyboard */; };
-		356AAEF3204448C300412161 /* SharePost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356AAEF2204448C300412161 /* SharePost.swift */; };
+		356AAEF3204448C300412161 /* UIActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356AAEF2204448C300412161 /* UIActivity.swift */; };
 		356AAEF620444E0700412161 /* RateAppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356AAEF520444E0700412161 /* RateAppHelper.swift */; };
 		3572F602203FF8FE00406F08 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572F601203FF8FE00406F08 /* UIViewExt.swift */; };
 		3594B3682042F7E20006F77C /* data.ru.json in Resources */ = {isa = PBXBuildFile; fileRef = 3594B3672042F7E20006F77C /* data.ru.json */; };
@@ -46,7 +46,7 @@
 		35600DAD203DDCAA005CEAD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35600DB0203DDCAA005CEAD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35600DB2203DDCAA005CEAD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		356AAEF2204448C300412161 /* SharePost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePost.swift; sourceTree = "<group>"; };
+		356AAEF2204448C300412161 /* UIActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivity.swift; sourceTree = "<group>"; };
 		356AAEF520444E0700412161 /* RateAppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAppHelper.swift; sourceTree = "<group>"; };
 		3572F601203FF8FE00406F08 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		3594B3672042F7E20006F77C /* data.ru.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.ru.json; sourceTree = "<group>"; };
@@ -96,19 +96,10 @@
 		35065FED2042F079001E6AE1 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				356AAEF520444E0700412161 /* RateAppHelper.swift */,
 				35065FEE2042F092001E6AE1 /* Constants.swift */,
 			);
 			path = Utilities;
-			sourceTree = "<group>";
-		};
-		353BB1C9203DE1640061CF48 /* Supported Files */ = {
-			isa = PBXGroup;
-			children = (
-				3594B3692042F7E90006F77C /* data.en.json */,
-				3594B3672042F7E20006F77C /* data.ru.json */,
-				356AAEF2204448C300412161 /* SharePost.swift */,
-			);
-			path = "Supported Files";
 			sourceTree = "<group>";
 		};
 		353BB1CE203DE1D80061CF48 /* Services */ = {
@@ -142,29 +133,13 @@
 		35600DA5203DDCAA005CEAD9 /* FortuneApp */ = {
 			isa = PBXGroup;
 			children = (
-				35BC1A4D203F487700D12347 /* Views */,
-				35BC1A4E203F488700D12347 /* Controllers */,
-				356AAEF420444DA300412161 /* Helpers */,
-				35065FED2042F079001E6AE1 /* Utilities */,
-				353BB1CE203DE1D80061CF48 /* Services */,
-				3572F600203FF8C200406F08 /* Extensions */,
-				353BB1C9203DE1640061CF48 /* Supported Files */,
-				35600DA6203DDCAA005CEAD9 /* AppDelegate.swift */,
-				35600DAA203DDCAA005CEAD9 /* Main.storyboard */,
-				35D814DC2046FBA600690159 /* Localizable.strings */,
+				35C109F8205008160012F158 /* Source */,
+				35C109FA205008340012F158 /* Storyboards */,
+				35C109FB2050083D0012F158 /* Resources */,
 				35600DAD203DDCAA005CEAD9 /* Assets.xcassets */,
-				35600DAF203DDCAA005CEAD9 /* LaunchScreen.storyboard */,
 				35600DB2203DDCAA005CEAD9 /* Info.plist */,
 			);
 			path = FortuneApp;
-			sourceTree = "<group>";
-		};
-		356AAEF420444DA300412161 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				356AAEF520444E0700412161 /* RateAppHelper.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		3572F600203FF8C200406F08 /* Extensions */ = {
@@ -180,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				35BC1A4F203F490500D12347 /* GradientView.swift */,
+				356AAEF2204448C300412161 /* UIActivity.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -190,6 +166,46 @@
 				35600DA8203DDCAA005CEAD9 /* MagicSphereVC.swift */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		35C109F8205008160012F158 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				35BC1A4D203F487700D12347 /* Views */,
+				35BC1A4E203F488700D12347 /* Controllers */,
+				353BB1CE203DE1D80061CF48 /* Services */,
+				35065FED2042F079001E6AE1 /* Utilities */,
+				3572F600203FF8C200406F08 /* Extensions */,
+				35600DA6203DDCAA005CEAD9 /* AppDelegate.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		35C109FA205008340012F158 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				35600DAA203DDCAA005CEAD9 /* Main.storyboard */,
+				35600DAF203DDCAA005CEAD9 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		35C109FB2050083D0012F158 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				35C109FC20500DFC0012F158 /* Data */,
+				35D814DC2046FBA600690159 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		35C109FC20500DFC0012F158 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3594B3672042F7E20006F77C /* data.ru.json */,
+				3594B3692042F7E90006F77C /* data.en.json */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		35D814C52046EA7500690159 /* FortuneAppTests */ = {
@@ -390,7 +406,7 @@
 				35D814E32046FE0B00690159 /* StringExt.swift in Sources */,
 				3572F602203FF8FE00406F08 /* UIViewExt.swift in Sources */,
 				35BC1A50203F490500D12347 /* GradientView.swift in Sources */,
-				356AAEF3204448C300412161 /* SharePost.swift in Sources */,
+				356AAEF3204448C300412161 /* UIActivity.swift in Sources */,
 				35600DA7203DDCAA005CEAD9 /* AppDelegate.swift in Sources */,
 				35065FEF2042F092001E6AE1 /* Constants.swift in Sources */,
 			);

@@ -9,7 +9,7 @@
 import UIKit
 import FBSDKShareKit
 
-class SharePost: NSObject, UIActivityItemSource {
+class UIActivity: NSObject, UIActivityItemSource {
     
     var prediction: String!
     var controller: UIViewController!
