@@ -65,7 +65,12 @@ class UIActivity: NSObject, UIActivityItemSource {
     }
     
     fileprivate func GetShareMessage(forPrediction prediction: String) -> String {
-        let shareMessage = "\"\(prediction)\" - \(String(key: LocalizationKeys.appNameInAppStore))"
+        
+        guard let appName = Bundle.main.object(forInfoDictionaryKey: "CFBundleName") as? String else {
+            return ""
+        }
+        
+        let shareMessage = "\"\(prediction)\" - \(appName)"
         
         return shareMessage
     }

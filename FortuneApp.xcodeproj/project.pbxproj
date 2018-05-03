@@ -19,6 +19,7 @@
 		3572F602203FF8FE00406F08 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572F601203FF8FE00406F08 /* UIViewExt.swift */; };
 		3594B3682042F7E20006F77C /* data.ru.json in Resources */ = {isa = PBXBuildFile; fileRef = 3594B3672042F7E20006F77C /* data.ru.json */; };
 		3594B36A2042F7E90006F77C /* data.en.json in Resources */ = {isa = PBXBuildFile; fileRef = 3594B3692042F7E90006F77C /* data.en.json */; };
+		3595DA69209B4780008DFFA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3595DA6B209B4780008DFFA7 /* InfoPlist.strings */; };
 		35BC1A50203F490500D12347 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC1A4F203F490500D12347 /* GradientView.swift */; };
 		35D814C72046EA7500690159 /* FortuneAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D814C62046EA7500690159 /* FortuneAppTests.swift */; };
 		35D814DE2046FBA600690159 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 35D814DC2046FBA600690159 /* Localizable.strings */; };
@@ -51,6 +52,8 @@
 		3572F601203FF8FE00406F08 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		3594B3672042F7E20006F77C /* data.ru.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.ru.json; sourceTree = "<group>"; };
 		3594B3692042F7E90006F77C /* data.en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.en.json; sourceTree = "<group>"; };
+		3595DA6A209B4780008DFFA7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3595DA6C209B4785008DFFA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		35BC1A4F203F490500D12347 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		35D814C42046EA7500690159 /* FortuneAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FortuneAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D814C62046EA7500690159 /* FortuneAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAppTests.swift; sourceTree = "<group>"; };
@@ -195,6 +198,7 @@
 			children = (
 				35C109FC20500DFC0012F158 /* Data */,
 				35D814DC2046FBA600690159 /* Localizable.strings */,
+				3595DA6B209B4780008DFFA7 /* InfoPlist.strings */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -274,7 +278,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Николай Маторин";
 				TargetAttributes = {
 					35600DA2203DDCAA005CEAD9 = {
@@ -314,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3594B36A2042F7E90006F77C /* data.en.json in Resources */,
+				3595DA69209B4780008DFFA7 /* InfoPlist.strings in Resources */,
 				35600DB1203DDCAA005CEAD9 /* LaunchScreen.storyboard in Resources */,
 				35D814DE2046FBA600690159 /* Localizable.strings in Resources */,
 				35600DAE203DDCAA005CEAD9 /* Assets.xcassets in Resources */,
@@ -450,6 +455,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		3595DA6B209B4780008DFFA7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3595DA6A209B4780008DFFA7 /* ru */,
+				3595DA6C209B4785008DFFA7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		35D814DC2046FBA600690159 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -477,6 +491,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -484,6 +499,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -535,6 +551,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -542,6 +559,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

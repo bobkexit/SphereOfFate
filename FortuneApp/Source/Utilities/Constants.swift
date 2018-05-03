@@ -18,7 +18,6 @@ enum Config {
 
 enum LocalizationKeys: String {
     case errorMessage
-    case appNameInAppStore
 }
 
 enum UserDefaultsKeys {
