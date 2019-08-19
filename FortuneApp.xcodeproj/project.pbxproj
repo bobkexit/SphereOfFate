@@ -16,14 +16,18 @@
 		35600DB1203DDCAA005CEAD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAF203DDCAA005CEAD9 /* LaunchScreen.storyboard */; };
 		356AAEF3204448C300412161 /* UIActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356AAEF2204448C300412161 /* UIActivity.swift */; };
 		356AAEF620444E0700412161 /* RateAppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356AAEF520444E0700412161 /* RateAppHelper.swift */; };
-		3572F602203FF8FE00406F08 /* UIViewExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3572F601203FF8FE00406F08 /* UIViewExt.swift */; };
 		3594B3682042F7E20006F77C /* data.ru.json in Resources */ = {isa = PBXBuildFile; fileRef = 3594B3672042F7E20006F77C /* data.ru.json */; };
 		3594B36A2042F7E90006F77C /* data.en.json in Resources */ = {isa = PBXBuildFile; fileRef = 3594B3692042F7E90006F77C /* data.en.json */; };
 		3595DA69209B4780008DFFA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3595DA6B209B4780008DFFA7 /* InfoPlist.strings */; };
+		359C8BB8230B191C003024F1 /* MagicSphereView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BB7230B191C003024F1 /* MagicSphereView.swift */; };
+		359C8BBA230B2333003024F1 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BB9230B2333003024F1 /* UIView+Ext.swift */; };
+		359C8BBC230B2767003024F1 /* MagicSphereVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BBB230B2767003024F1 /* MagicSphereVC2.swift */; };
+		359C8BBE230B3103003024F1 /* UserDefaults+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BBD230B3103003024F1 /* UserDefaults+Ext.swift */; };
+		359C8BC0230B3417003024F1 /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BBF230B3417003024F1 /* NiblessViewController.swift */; };
 		35BC1A50203F490500D12347 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC1A4F203F490500D12347 /* GradientView.swift */; };
 		35D814C72046EA7500690159 /* FortuneAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D814C62046EA7500690159 /* FortuneAppTests.swift */; };
 		35D814DE2046FBA600690159 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 35D814DC2046FBA600690159 /* Localizable.strings */; };
-		35D814E32046FE0B00690159 /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D814E22046FE0B00690159 /* StringExt.swift */; };
+		35D814E32046FE0B00690159 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D814E22046FE0B00690159 /* String+Ext.swift */; };
 		DEA426D14AE43228363C64F4 /* Pods_FortuneApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45CB0E182D419F7837867841 /* Pods_FortuneApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,11 +53,15 @@
 		35600DB2203DDCAA005CEAD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		356AAEF2204448C300412161 /* UIActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivity.swift; sourceTree = "<group>"; };
 		356AAEF520444E0700412161 /* RateAppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAppHelper.swift; sourceTree = "<group>"; };
-		3572F601203FF8FE00406F08 /* UIViewExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExt.swift; sourceTree = "<group>"; };
 		3594B3672042F7E20006F77C /* data.ru.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.ru.json; sourceTree = "<group>"; };
 		3594B3692042F7E90006F77C /* data.en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.en.json; sourceTree = "<group>"; };
 		3595DA6A209B4780008DFFA7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3595DA6C209B4785008DFFA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		359C8BB7230B191C003024F1 /* MagicSphereView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicSphereView.swift; sourceTree = "<group>"; };
+		359C8BB9230B2333003024F1 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		359C8BBB230B2767003024F1 /* MagicSphereVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicSphereVC2.swift; sourceTree = "<group>"; };
+		359C8BBD230B3103003024F1 /* UserDefaults+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Ext.swift"; sourceTree = "<group>"; };
+		359C8BBF230B3417003024F1 /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
 		35BC1A4F203F490500D12347 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		35D814C42046EA7500690159 /* FortuneAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FortuneAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D814C62046EA7500690159 /* FortuneAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAppTests.swift; sourceTree = "<group>"; };
@@ -63,7 +71,7 @@
 		35D814DF2046FC7600690159 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		35D814E02046FC7600690159 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		35D814E12046FC7600690159 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
-		35D814E22046FE0B00690159 /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		35D814E22046FE0B00690159 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		45CB0E182D419F7837867841 /* Pods_FortuneApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FortuneApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67023814ADAA9863FCB97479 /* Pods-FortuneApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FortuneApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FortuneApp/Pods-FortuneApp.release.xcconfig"; sourceTree = "<group>"; };
 		80726E9128EE82C4E3AF8969 /* Pods-FortuneApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FortuneApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FortuneApp/Pods-FortuneApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,8 +156,9 @@
 		3572F600203FF8C200406F08 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				3572F601203FF8FE00406F08 /* UIViewExt.swift */,
-				35D814E22046FE0B00690159 /* StringExt.swift */,
+				359C8BB9230B2333003024F1 /* UIView+Ext.swift */,
+				35D814E22046FE0B00690159 /* String+Ext.swift */,
+				359C8BBD230B3103003024F1 /* UserDefaults+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -159,6 +168,7 @@
 			children = (
 				35BC1A4F203F490500D12347 /* GradientView.swift */,
 				356AAEF2204448C300412161 /* UIActivity.swift */,
+				359C8BB7230B191C003024F1 /* MagicSphereView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -166,7 +176,9 @@
 		35BC1A4E203F488700D12347 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				359C8BBF230B3417003024F1 /* NiblessViewController.swift */,
 				35600DA8203DDCAA005CEAD9 /* MagicSphereVC.swift */,
+				359C8BBB230B2767003024F1 /* MagicSphereVC2.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -242,7 +254,6 @@
 				35600DA0203DDCAA005CEAD9 /* Frameworks */,
 				35600DA1203DDCAA005CEAD9 /* Resources */,
 				2CE70BE5C2F8360A08CDB9D0 /* [CP] Embed Pods Frameworks */,
-				4C982338B8C1289047DCA8BB /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -283,10 +294,12 @@
 				TargetAttributes = {
 					35600DA2203DDCAA005CEAD9 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1030;
 						ProvisioningStyle = Automatic;
 					};
 					35D814C32046EA7500690159 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1030;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 35600DA2203DDCAA005CEAD9;
 					};
@@ -343,26 +356,22 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-FortuneApp/Pods-FortuneApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-FortuneApp/Pods-FortuneApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
 				"${BUILT_PRODUCTS_DIR}/RQShineLabel/RQShineLabel.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RQShineLabel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FortuneApp/Pods-FortuneApp-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FortuneApp/Pods-FortuneApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		45257A707D4A9A94F68CD80F /* [CP] Check Pods Manifest.lock */ = {
@@ -383,21 +392,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4C982338B8C1289047DCA8BB /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FortuneApp/Pods-FortuneApp-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -406,12 +400,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				353BB1CD203DE1C40061CF48 /* PredictionService.swift in Sources */,
+				359C8BBA230B2333003024F1 /* UIView+Ext.swift in Sources */,
+				359C8BBC230B2767003024F1 /* MagicSphereVC2.swift in Sources */,
+				359C8BC0230B3417003024F1 /* NiblessViewController.swift in Sources */,
 				356AAEF620444E0700412161 /* RateAppHelper.swift in Sources */,
 				35600DA9203DDCAA005CEAD9 /* MagicSphereVC.swift in Sources */,
-				35D814E32046FE0B00690159 /* StringExt.swift in Sources */,
-				3572F602203FF8FE00406F08 /* UIViewExt.swift in Sources */,
+				35D814E32046FE0B00690159 /* String+Ext.swift in Sources */,
 				35BC1A50203F490500D12347 /* GradientView.swift in Sources */,
 				356AAEF3204448C300412161 /* UIActivity.swift in Sources */,
+				359C8BBE230B3103003024F1 /* UserDefaults+Ext.swift in Sources */,
+				359C8BB8230B191C003024F1 /* MagicSphereView.swift in Sources */,
 				35600DA7203DDCAA005CEAD9 /* AppDelegate.swift in Sources */,
 				35065FEF2042F092001E6AE1 /* Constants.swift in Sources */,
 			);
@@ -597,11 +595,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M64J2FC2KN;
 				INFOPLIST_FILE = FortuneApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bobkexit.FortuneApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -614,11 +612,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M64J2FC2KN;
 				INFOPLIST_FILE = FortuneApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bobkexit.FortuneApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
@@ -634,7 +632,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bobkexit.FortuneAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FortuneApp.app/FortuneApp";
 			};
@@ -651,7 +649,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bobkexit.FortuneAppTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FortuneApp.app/FortuneApp";
 			};

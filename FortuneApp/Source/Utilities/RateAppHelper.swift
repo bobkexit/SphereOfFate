@@ -9,59 +9,45 @@
 import Foundation
 import StoreKit
 
-class RateAppHelper {
-    
-    public static var shared = RateAppHelper()
+protocol RateAppService {
+    func requestReview()
+    func requestReviewIfNeeded()
+}
 
-    fileprivate let userDefaults = UserDefaults.standard
+class RateAppHelper: RateAppService {
     
-    private init() {
-        
-    }
+    static let shared = RateAppHelper()
+
+    private let userDefaults = UserDefaults.standard
     
-    // called from appdelegate didfinishLaunchingWithOptions:
-    func displayRatingsPromptIfRequired() {
+    private init() { }
+    
+    func requestReviewIfNeeded() {
         incrementLaunchesCount()
         
         let appLaunchesCount = getLaunchesCount()
         
         switch appLaunchesCount {
         case 3,10,50:
-            RateAppHelper().requestReview()
+            requestReview()
         case _ where appLaunchesCount != 0 && appLaunchesCount%100 == 0:
-            RateAppHelper().requestReview()
+            requestReview()
         default:
             print("App run count is : \(appLaunchesCount)")
             break;
         }
     }
     
-    fileprivate func incrementLaunchesCount() {
-         let appLaunchesCount = getLaunchesCount()
-         userDefaults.set(appLaunchesCount + 1, forKey: UserDefaultsKeys.appLaunchesCount)
-    }
-    
-    fileprivate func getLaunchesCount() -> Int {
-        return userDefaults.integer(forKey: UserDefaultsKeys.appLaunchesCount)
-    }
-    
-    fileprivate func openUrl(_ urlString: String) {
-        guard let url = URL(string: urlString) else {
-            return
-        }
-        if #available(iOS 10.0, *) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-        } else {
-            UIApplication.shared.openURL(url)
-        }
-    }
-    
     func requestReview() {
-        if #available(iOS 10.3, *) {
-            SKStoreReviewController.requestReview()
-        } else {
-            // Fallback on earlier versions
-            // Try any other 3rd party or manual method here.
-        }
+        SKStoreReviewController.requestReview()
+    }
+    
+    private func incrementLaunchesCount() {
+         let appLaunchesCount = getLaunchesCount()
+         userDefaults.set(appLaunchesCount + 1, forKey: UserDefaults.Keys.appLaunchesCount)
+    }
+    
+    private func getLaunchesCount() -> Int {
+        return userDefaults.integer(forKey: UserDefaults.Keys.appLaunchesCount)
     }
 }

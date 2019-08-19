@@ -5,4 +5,6 @@
   Created by Николай Маторин on 28.02.2018.
   Copyright © 2018 Николай Маторин. All rights reserved.
 */
-"errorMessage" = "Похоже, что что-то не работает :-(";
+"errorMessage" = "Похоже, что что-то пошло не так :-(";
+"сancel" = "отмена";
+"error" = "ошибка";

@@ -5,4 +5,6 @@
   Created by Николай Маторин on 28.02.2018.
   Copyright © 2018 Николай Маторин. All rights reserved.
 */
-"errorMessage" = "Looks like somthing does't work :-(";
+"errorMessage" = "Looks like somthing goes wrong :-(";
+"сancel" = "cancel";
+"error" = "error";

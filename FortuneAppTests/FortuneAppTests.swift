@@ -7,39 +7,39 @@
 //
 
 import XCTest
-@testable import FortuneApp
-
-class FortuneAppTests: XCTestCase {
-    
-    //var fortuneAppUnderTest: FortuneApp!
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testMakePrediction() {
-        PredictionService.shared.makePrediction { (prediction, error) in
-           
-            XCTAssertNil(error, error!.localizedDescription)
-            
-            XCTAssertNotNil(prediction, "prediction is nil")
-            
-            XCTAssertFalse(prediction!.isEmpty, "prediction is empty string")
-        }
-    }
-    
-    func testMakePredictionPerformance() {
-        self.measure {
-            PredictionService.shared.makePrediction(completion: { (prediction, error) in
-                
-            })
-        }
-    }
-    
-}
+//@testable import FortuneApp
+//
+//class FortuneAppTests: XCTestCase {
+//    
+//    //var fortuneAppUnderTest: FortuneApp!
+//    
+//    override func setUp() {
+//        super.setUp()
+//        // Put setup code here. This method is called before the invocation of each test method in the class.
+//    }
+//    
+//    override func tearDown() {
+//        // Put teardown code here. This method is called after the invocation of each test method in the class.
+//        super.tearDown()
+//    }
+//    
+//    func testMakePrediction() {
+//        PredictionService.shared.makePrediction { (prediction, error) in
+//           
+//            XCTAssertNil(error, error!.localizedDescription)
+//            
+//            XCTAssertNotNil(prediction, "prediction is nil")
+//            
+//            XCTAssertFalse(prediction!.isEmpty, "prediction is empty string")
+//        }
+//    }
+//    
+//    func testMakePredictionPerformance() {
+//        self.measure {
+//            PredictionService.shared.makePrediction(completion: { (prediction, error) in
+//                
+//            })
+//        }
+//    }
+//    
+//}

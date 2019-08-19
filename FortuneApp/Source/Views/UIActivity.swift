@@ -9,27 +9,22 @@
 import UIKit
 import FBSDKShareKit
 
-class UIActivity: NSObject, UIActivityItemSource {
+class UIActivityService: NSObject, UIActivityItemSource {
     
-    var prediction: String!
-    var controller: UIViewController!
+    let prediction: String
+    unowned let controller: UIViewController
     
-    init(withPrediction prediction: String, FromController controller: UIViewController) {
-        super.init()
+    init(with prediction: String, from controller: UIViewController) {
         self.prediction = prediction
         self.controller = controller
+        super.init()
     }
     
     func activityViewControllerPlaceholderItem(_ activityViewController: UIActivityViewController) -> Any {
         return ""
     }
     
-    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivityType?) -> Any? {
-        
-        guard let prediction = prediction else {
-            return nil
-        }
-        
+    func activityViewController(_ activityViewController: UIActivityViewController, itemForActivityType activityType: UIActivity.ActivityType?) -> Any? {
         if activityType == .postToFacebook {
             activityViewController.dismiss(animated: true, completion: {
                 self.postToFacebook()
@@ -42,21 +37,20 @@ class UIActivity: NSObject, UIActivityItemSource {
     
     fileprivate func postToFacebook() {
         
-        guard let prediction = prediction, let controller = controller, let url = URL(string: Config.appStoreUrl)
-            else { return }
+        guard let url = URL(string: Config.appStoreUrl) else { return }
         
         let textToShare = GetShareMessage(forPrediction: prediction)
         
-        let content = FBSDKShareLinkContent()
+        let content = ShareLinkContent()
         content.contentURL = url
         content.quote = textToShare
         
-        let shareDialog = FBSDKShareDialog()
+        let shareDialog = ShareDialog()
         shareDialog.fromViewController = controller
         shareDialog.shareContent = content
         shareDialog.mode = .shareSheet
         
-        if !shareDialog.canShow() {
+        if !shareDialog.canShow {
             // fallback presentation when there is no FB app
             shareDialog.mode = .feedBrowser
         }

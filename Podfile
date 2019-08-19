@@ -6,8 +6,7 @@ target 'FortuneApp' do
   use_frameworks!
 
   # Pods for FortuneApp
-  pod 'SwiftyJSON'
-  pod "RQShineLabel", :git => 'git@github.com:bobkexit/RQShineLabel.git'
+  pod 'RQShineLabel'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'

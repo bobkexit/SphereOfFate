@@ -7,44 +7,72 @@
 //
 
 import UIKit
-import SwiftyJSON
 
 typealias CompletionHandler = (_ prediction: String?, _ error: Error?) -> ()
 
-class PredictionService {
+protocol PredictionService {
+    func sync(_ completion: @escaping (_ error: Error?) -> Void)
+    func getRandomPrediction() -> String?
+}
+
+enum PredictionServiceError: Error, LocalizedError {
+    case localError
+    case fileNotFound(String)
     
-    public static var shared = PredictionService()
+    var errorDescription: String? {
+        switch self {
+        case .localError:
+            return "Unrecognized system language code"
+        case .fileNotFound(let name):
+            return "Resource '\(name)' not found"
+        }
+    }
+}
+
+class PredictionServiceImp: PredictionService {
     
-    private init() {
-        
+    static let shared = PredictionServiceImp()
+    
+    private var predictions: [String] = UserDefaults.standard.stringArray(forKey: UserDefaults.Keys.predictons) ?? []
+    private var hashValue: Int = UserDefaults.standard.integer(forKey: UserDefaults.Keys.predictonsHash)
+    
+    private init() { }
+    
+    func getRandomPrediction() -> String? {
+        if predictions.isEmpty { return nil }
+        let randomIndex = Int.random(in: 0...predictions.count-1)
+        let prediction = predictions[randomIndex]
+        return prediction
     }
     
-    func makePrediction(completion: @escaping CompletionHandler) {
+    func sync(_ completion: @escaping (_ error: Error?) -> Void) {
         
-        guard let pre = Locale.current.languageCode, let locale = pre.components(separatedBy: "-").first else {
-            fatalError("Can't get current language")
+        if hashValue == predictions.hashValue {
+            completion(nil)
+            return
         }
         
-        let localizedDataFile = "\(Config.dataFileName).\(locale.lowercased())"
+        guard let languageCode = Locale.current.languageCode,
+            let locale = languageCode.components(separatedBy: "-").first else {
+                completion(PredictionServiceError.localError)
+                return
+        }
         
-        guard let url = Bundle.main.url(forResource: localizedDataFile, withExtension: Config.dataFileExtension) else {
-            fatalError("Can't get url for resource: \(localizedDataFile)")
+        let localizedFileName = "\(Config.dataFileName).\(locale.lowercased())"
+        
+        guard let url = Bundle.main.url(forResource: localizedFileName, withExtension: Config.dataFileExtension) else {
+            completion(PredictionServiceError.fileNotFound(localizedFileName))
+            return
         }
         
         do {
             let data = try Data(contentsOf: url)
-            let json = try JSON(data: data)
-            
-            let array = json[Config.keyForPredictionArray].arrayValue
-            let randomIndex = arc4random_uniform(UInt32(array.count))
-            let prediction = array[Int(randomIndex)].stringValue
-            
-            completion(prediction, nil)
-            
+            let predictons = try JSONDecoder().decode([String].self, from: data)
+            UserDefaults.standard.setValue(predictons, forKey: UserDefaults.Keys.predictons)
+            UserDefaults.standard.set(predictons.hashValue, forKey: UserDefaults.Keys.predictonsHash)
+            completion(nil)
         } catch {
-            print(error)
-            completion(nil, error)
+            completion(error)
         }
     }
-    
 }

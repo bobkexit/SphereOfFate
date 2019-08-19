@@ -30,14 +30,14 @@ class MagicSphereVC: UIViewController {
     }
     
     //MARK: - View Actions
-    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if event?.subtype == .motionShake {
             NSObject.cancelPreviousPerformRequests(withTarget: self)
             predictionLabel.fadeOut(1, delay: 0, completion: {_ in })
         }
     }
     
-    override func motionEnded(_ motion: UIEventSubtype, with event: UIEvent?) {
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         if event?.subtype == .motionShake {
             sphereImageView.shake()
             
@@ -53,7 +53,7 @@ class MagicSphereVC: UIViewController {
             return
         }
         
-        let sharePost = UIActivity(withPrediction: prediction, FromController: self)
+        let sharePost = UIActivityService(with: prediction, from: self)
         
         let activityVC = UIActivityViewController(activityItems: [sharePost], applicationActivities: nil)
         activityVC.popoverPresentationController?.sourceView = self.view
@@ -97,17 +97,20 @@ class MagicSphereVC: UIViewController {
     
     fileprivate func updatePredictionLabel() {
         predictionLabel.alpha = 1
-        PredictionService.shared.makePrediction { (prediction, error) in
-            if error != nil || prediction == nil {
-                self.predictionLabel.text = String(key: .errorMessage)
-            } else {
-                self.predictionLabel.text = prediction!
-            }
-            
-            if let emptyString = self.predictionLabel.text?.isEmpty, !emptyString {
-                self.predictionLabel.shine()
-            }
-        }
+        
+        predictionLabel.text = PredictionServiceImp.shared.getRandomPrediction()
+        
+//        PredictionService.shared.makePrediction { (prediction, error) in
+//            if error != nil || prediction == nil {
+//                self.predictionLabel.text = String(key: .errorMessage)
+//            } else {
+//                self.predictionLabel.text = prediction!
+//            }
+//            
+//            if let emptyString = self.predictionLabel.text?.isEmpty, !emptyString {
+//                self.predictionLabel.shine()
+//            }
+//        }
     }
     
     fileprivate func updateButtons() {
