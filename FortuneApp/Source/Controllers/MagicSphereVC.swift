@@ -98,19 +98,7 @@ class MagicSphereVC: UIViewController {
     fileprivate func updatePredictionLabel() {
         predictionLabel.alpha = 1
         
-        predictionLabel.text = PredictionServiceImp.shared.getRandomPrediction()
-        
-//        PredictionService.shared.makePrediction { (prediction, error) in
-//            if error != nil || prediction == nil {
-//                self.predictionLabel.text = String(key: .errorMessage)
-//            } else {
-//                self.predictionLabel.text = prediction!
-//            }
-//            
-//            if let emptyString = self.predictionLabel.text?.isEmpty, !emptyString {
-//                self.predictionLabel.shine()
-//            }
-//        }
+        predictionLabel.text = PredictionService.shared.getRandomPrediction()
     }
     
     fileprivate func updateButtons() {

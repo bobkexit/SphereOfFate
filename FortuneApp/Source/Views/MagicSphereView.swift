@@ -12,7 +12,7 @@ import RQShineLabel
 class MagicSphereView: UIView {
     
     private lazy var hintLabel: UILabel = self.makeHintLabel()
-    private lazy var predictionLabel: RQShineLabel = self.makePredictionLabel()
+    private lazy var predictionLabel: ShiningLabel = self.makePredictionLabel()
     private lazy var sphereImageView: UIImageView = self.makeSphereImageView()
     private lazy var shareButton: UIButton = self.makeShareButton()
     private lazy var rateAppButton: UIButton = self.makeRateAppButton()
@@ -45,12 +45,6 @@ class MagicSphereView: UIView {
         shareButton.layer.cornerRadius = shareButton.bounds.width / 2
         rateAppButton.layer.cornerRadius = rateAppButton.bounds.width / 2
         
-        let width = sphereImageView.bounds.width / 1.6
-        let size = CGRect(x: 0, y: 0, width: width, height: width)
-        predictionLabel.bounds = size
-        predictionLabel.layer.cornerRadius = size.width / 2
-        predictionLabel.layer.masksToBounds = true
-        
         if layer.sublayers?.first != gradientlayer {
             layer.insertSublayer(gradientlayer, at: 0)
         }
@@ -62,10 +56,11 @@ class MagicSphereView: UIView {
         topContainer.addSubviews(hintLabel)
         hintLabel.pinEdges(to: topContainer)
         
-        middleContainer.addSubviews(predictionLabel, sphereImageView)
+        middleContainer.addSubviews(sphereImageView)
+        sphereImageView.addSubviews(predictionLabel)
         sphereImageView.pinEdges(to: middleContainer)
-        predictionLabel.center(in: middleContainer)
-
+        predictionLabel.center(in: sphereImageView)
+      
         bottomContainer.addSubviews(buttonStack)
         buttonStack.center(in: bottomContainer)
 
@@ -83,19 +78,19 @@ class MagicSphereView: UIView {
     
     func show(_ prediction: String?) {
         sphereImageView.shake() { [unowned self] in
-            self.predictionLabel.isHidden = false
-            self.predictionLabel.alpha = 1
-            self.predictionLabel.text = prediction
-            self.predictionLabel.shine()
+            self.predictionLabel.fadeOut { [unowned self] in
+                self.predictionLabel.text = prediction
+                self.predictionLabel.shine()
+            }
         }
     }
     
     func hidePrediction(_ animated: Bool = true) {
-        if animated {
-            predictionLabel.fadeOut(1, delay: 0, completion: {_ in })
-        } else {
-            predictionLabel.isHidden = true
-        }
+//        if animated {
+//            predictionLabel.fadeOut(1, delay: 0, completion: {_ in })
+//        } else {
+//            predictionLabel.isHidden = true
+//        }
     }
     
     func reset() {
@@ -117,8 +112,8 @@ class MagicSphereView: UIView {
         return v
     }
     
-    private func makePredictionLabel() -> RQShineLabel {
-        let v = RQShineLabel()
+    private func makePredictionLabel() -> ShiningLabel {
+        let v = ShiningLabel()
         v.translatesAutoresizingMaskIntoConstraints = false
         v.text = "prediction"
         v.font = UIFont.systemFont(ofSize: 22.0, weight: .medium)
@@ -198,6 +193,9 @@ class MagicSphereView: UIView {
             bottomContainer.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor),
             bottomContainer.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor),
             bottomContainer.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor),
+            
+            predictionLabel.widthAnchor.constraint(equalTo: sphereImageView.widthAnchor, multiplier: 0.6),
+            predictionLabel.heightAnchor.constraint(equalTo: sphereImageView.heightAnchor, multiplier: 0.5),
         ]
     }
 }

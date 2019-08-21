@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = MagicSphereVC2(rateAppService: RateAppHelper.shared,
-                                                    predictionService: PredictionServiceImp.shared)
+                                                    predictorManager: PredictionService.shared)
         window?.makeKeyAndVisible()
         
         return true

@@ -10,13 +10,15 @@ import UIKit
 
 class MagicSphereVC2: NiblessViewController {
     
+    typealias PredictorManager = Predictor & SyncService
+    
     private lazy var rootView: MagicSphereView = self.makeRootView()
     private let rateAppService: RateAppService
-    private let predictionService: PredictionService
+    private let predictorManager: PredictorManager
     
-    init(rateAppService: RateAppService, predictionService: PredictionService) {
+    init(rateAppService: RateAppService, predictorManager: PredictorManager) {
         self.rateAppService = rateAppService
-        self.predictionService = predictionService
+        self.predictorManager = predictorManager
         super.init()
     }
     
@@ -27,15 +29,15 @@ class MagicSphereVC2: NiblessViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        predictionService.sync { [unowned self] error in
+        predictorManager.sync { [unowned self] error in
             
             if let error = error {
                 self.show(error)
                 return
             }
             
-            self.rateAppService.requestReviewIfNeeded()
             self.rootView.showHint()
+            self.rateAppService.requestReviewIfNeeded()
         }
     }
     
@@ -44,8 +46,8 @@ class MagicSphereVC2: NiblessViewController {
             return
         }
         
-        NSObject.cancelPreviousPerformRequests(withTarget: self)
-        rootView.hidePrediction()
+        //NSObject.cancelPreviousPerformRequests(withTarget: self)
+        //rootView.hidePrediction()
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
@@ -59,7 +61,7 @@ class MagicSphereVC2: NiblessViewController {
     }
     
     private func updatePrediction() {
-        let newPrediction = predictionService.getRandomPrediction()
+        let newPrediction = predictorManager.getRandomPrediction()
         rootView.show(newPrediction)
     }
     

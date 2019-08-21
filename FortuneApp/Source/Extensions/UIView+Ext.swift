@@ -18,6 +18,7 @@ extension UIView {
     }
     
     func center(in other: UIView) {
+        translatesAutoresizingMaskIntoConstraints = false
         centerXAnchor.constraint(equalTo: other.centerXAnchor).isActive = true
         centerYAnchor.constraint(equalTo: other.centerYAnchor).isActive = true
     }

@@ -24,6 +24,7 @@
 		359C8BBC230B2767003024F1 /* MagicSphereVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BBB230B2767003024F1 /* MagicSphereVC2.swift */; };
 		359C8BBE230B3103003024F1 /* UserDefaults+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BBD230B3103003024F1 /* UserDefaults+Ext.swift */; };
 		359C8BC0230B3417003024F1 /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BBF230B3417003024F1 /* NiblessViewController.swift */; };
+		359C8BC3230C6AF1003024F1 /* ShiningLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BC2230C6AF1003024F1 /* ShiningLabel.swift */; };
 		35BC1A50203F490500D12347 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC1A4F203F490500D12347 /* GradientView.swift */; };
 		35D814C72046EA7500690159 /* FortuneAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D814C62046EA7500690159 /* FortuneAppTests.swift */; };
 		35D814DE2046FBA600690159 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 35D814DC2046FBA600690159 /* Localizable.strings */; };
@@ -62,6 +63,7 @@
 		359C8BBB230B2767003024F1 /* MagicSphereVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicSphereVC2.swift; sourceTree = "<group>"; };
 		359C8BBD230B3103003024F1 /* UserDefaults+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Ext.swift"; sourceTree = "<group>"; };
 		359C8BBF230B3417003024F1 /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
+		359C8BC2230C6AF1003024F1 /* ShiningLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiningLabel.swift; sourceTree = "<group>"; };
 		35BC1A4F203F490500D12347 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		35D814C42046EA7500690159 /* FortuneAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FortuneAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D814C62046EA7500690159 /* FortuneAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAppTests.swift; sourceTree = "<group>"; };
@@ -163,9 +165,18 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		359C8BC1230C6ACD003024F1 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				359C8BC2230C6AF1003024F1 /* ShiningLabel.swift */,
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		35BC1A4D203F487700D12347 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				359C8BC1230C6ACD003024F1 /* New Group */,
 				35BC1A4F203F490500D12347 /* GradientView.swift */,
 				356AAEF2204448C300412161 /* UIActivity.swift */,
 				359C8BB7230B191C003024F1 /* MagicSphereView.swift */,
@@ -411,6 +422,7 @@
 				359C8BBE230B3103003024F1 /* UserDefaults+Ext.swift in Sources */,
 				359C8BB8230B191C003024F1 /* MagicSphereView.swift in Sources */,
 				35600DA7203DDCAA005CEAD9 /* AppDelegate.swift in Sources */,
+				359C8BC3230C6AF1003024F1 /* ShiningLabel.swift in Sources */,
 				35065FEF2042F092001E6AE1 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

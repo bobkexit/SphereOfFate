@@ -10,8 +10,12 @@ import UIKit
 
 typealias CompletionHandler = (_ prediction: String?, _ error: Error?) -> ()
 
-protocol PredictionService {
+protocol SyncService {
     func sync(_ completion: @escaping (_ error: Error?) -> Void)
+    
+}
+
+protocol Predictor {
     func getRandomPrediction() -> String?
 }
 
@@ -29,9 +33,9 @@ enum PredictionServiceError: Error, LocalizedError {
     }
 }
 
-class PredictionServiceImp: PredictionService {
+class PredictionService: SyncService, Predictor {
     
-    static let shared = PredictionServiceImp()
+    static let shared = PredictionService()
     
     private var predictions: [String] = UserDefaults.standard.stringArray(forKey: UserDefaults.Keys.predictons) ?? []
     private var hashValue: Int = UserDefaults.standard.integer(forKey: UserDefaults.Keys.predictonsHash)
