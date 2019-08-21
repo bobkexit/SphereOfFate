@@ -9,7 +9,14 @@
 import UIKit
 import RQShineLabel
 
+protocol MagicSphereViewDelagate: AnyObject {
+    func magicSphereViewDidTapShareButton(_ magicSphereView: MagicSphereView)
+    func magicSphereViewDidTapRateButton(_ magicSphereView: MagicSphereView)
+}
+
 class MagicSphereView: UIView {
+    
+    weak var delegate: MagicSphereViewDelagate?
     
     private lazy var hintLabel: UILabel = self.makeHintLabel()
     private lazy var predictionLabel: ShiningLabel = self.makePredictionLabel()
@@ -76,21 +83,36 @@ class MagicSphereView: UIView {
         sphereImageView.shake()
     }
     
-    func show(_ prediction: String?) {
-        sphereImageView.shake() { [unowned self] in
-            self.predictionLabel.fadeOut { [unowned self] in
-                self.predictionLabel.text = prediction
-                self.predictionLabel.shine()
+    func update(_ prediction: String?, animated: Bool = true) {
+        
+        if !animated {
+            predictionLabel.text = prediction
+            return
+        }
+        
+        let hidePredictionAfter5Sec: (() -> Void) = { [unowned self] in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [unowned self] in
+                self.predictionLabel.fadeOut()
             }
         }
+        
+        let updatePrediction: (() -> Void) = { [unowned self] in
+            self.predictionLabel.text = prediction
+            self.predictionLabel.shine()
+        }
+       
+        sphereImageView.shake { [unowned self] in
+            let isHiddenPrediction = self.predictionLabel.isHidden
+            isHiddenPrediction ? updatePrediction() : self.predictionLabel.fadeOut(updatePrediction)
+        }        
     }
     
     func hidePrediction(_ animated: Bool = true) {
-//        if animated {
-//            predictionLabel.fadeOut(1, delay: 0, completion: {_ in })
-//        } else {
-//            predictionLabel.isHidden = true
-//        }
+        if animated {
+            predictionLabel.fadeOut()
+        } else {
+            predictionLabel.isHidden = true
+        }
     }
     
     func reset() {
@@ -100,6 +122,14 @@ class MagicSphereView: UIView {
         rateAppButton.isHidden = true
         rateAppButton.alpha = 0
         hintLabel.alpha = 0
+    }
+    
+    @objc private func rateAppButtonTapped(_ sender: UIButton) {
+        delegate?.magicSphereViewDidTapRateButton(self)
+    }
+    
+    @objc private func shareButtonTapped(_ sender: UIButton) {
+        delegate?.magicSphereViewDidTapShareButton(self)
     }
     
     private func makeHintLabel() -> UILabel {
@@ -136,6 +166,7 @@ class MagicSphereView: UIView {
         let image = UIImage(named: "Share Icon Solid")
         v.setImage(image, for: .normal)
         v.setImage(image, for: .selected)
+        v.addTarget(self, action: #selector(shareButtonTapped(_:)), for: .touchUpInside)
         return v
     }
     
@@ -145,6 +176,7 @@ class MagicSphereView: UIView {
         let image = UIImage(named: "RateApp Icon Solid")
         v.setImage(image, for: .normal)
         v.setImage(image, for: .selected)
+        v.addTarget(self, action: #selector(rateAppButtonTapped(_:)), for: .touchUpInside)
         return v
     }
     

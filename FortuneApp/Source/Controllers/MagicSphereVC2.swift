@@ -46,7 +46,7 @@ class MagicSphereVC2: NiblessViewController {
             return
         }
         
-        //NSObject.cancelPreviousPerformRequests(withTarget: self)
+        NSObject.cancelPreviousPerformRequests(withTarget: self)
         //rootView.hidePrediction()
     }
     
@@ -61,8 +61,9 @@ class MagicSphereVC2: NiblessViewController {
     }
     
     private func updatePrediction() {
-        let newPrediction = predictorManager.getRandomPrediction()
-        rootView.show(newPrediction)
+        let prediction = predictorManager.getRandomPrediction()
+        rootView.update(prediction, animated: true)
+        //rootView.hidePrediction()
     }
     
     private func show(_ error: Error) {
@@ -83,6 +84,17 @@ class MagicSphereVC2: NiblessViewController {
     
     private func makeRootView() -> MagicSphereView {
         let v = MagicSphereView()
+        v.delegate = self
         return v
+    }
+}
+
+extension MagicSphereVC2: MagicSphereViewDelagate {
+    func magicSphereViewDidTapShareButton(_ magicSphereView: MagicSphereView) {
+        updatePrediction()
+    }
+    
+    func magicSphereViewDidTapRateButton(_ magicSphereView: MagicSphereView) {
+        updatePrediction()
     }
 }
