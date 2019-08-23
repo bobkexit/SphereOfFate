@@ -49,35 +49,38 @@ class ShiningLabel: UILabel {
     }
 
     func shine(_ competion: (() -> Void)? = nil) {
-        guard let text = text, !text.isEmpty, !isShining else {
-            return
-        }
-        prepareForAnimationText(text, with: shiningDuration, competion: competion)
-        startAnimation(with: shiningDuration)
+        animateLabel(with: shiningDuration, competion: competion)
     }
     
     func fadeOut(_ competion: (() -> Void)? = nil) {
-        guard !isShining else {
+        isFadeOut = true
+        animateLabel(with: fadingOutDuration, competion: competion)
+    }
+    
+    private func animateLabel(with duration: Double, competion: (() -> Void)? = nil) {
+        guard let text = text, !text.isEmpty, !isShining else {
             return
         }
-        
-        isFadeOut = true
-        
-        shine(competion)
+        self.text = nil
+        prepareForAnimationText(text, with: duration, competion: competion)
+        startAnimation(with: duration)
     }
 
     private func prepareForAnimationText(_ text: String, with duration: Double, competion: (() -> Void)?) {
         self.competion = competion
 
         text.forEach { _ in
-            let characterAnimationDelay = drand48()
-            let characterAnimationDuration = drand48()
+          
+            let characterAnimationDelay = Double.random(in: 0..<(duration / 2 * 100)) / 100
+            let remain = duration - characterAnimationDelay
+            let characterAnimationDuration = Double.random(in: 0..<(remain * 100)) / 100
 
             characterAnimationDelays.append(characterAnimationDelay)
             characterAnimationDurations.append(characterAnimationDuration)
         }
         
-         attributedString = makeMutableAttributedString(with: text)
+        let alpha: CGFloat = isFadeOut ? 1 : 0
+        attributedString = makeMutableAttributedString(with: text, withAlphaComponent: alpha)
     }
 
     private func startAnimation(with duration: Double) {
@@ -85,72 +88,68 @@ class ShiningLabel: UILabel {
         endTime = beginTime + duration
         displaylink.isPaused = false
     }
+    
+    @objc func updateLabel() {
+        let now = CACurrentMediaTime()
+        updateAttributedStringFor(now)
+        guard now > endTime else { return }
+        displaylink.isPaused = true
+        isFadeOut = false
+        competion?()
+    }
 
-    @objc private func updateAttributedString() {
+    private func updateAttributedStringFor(_ now: CFTimeInterval) {
         guard let attributedString = attributedString else {
             return
         }
         
-        let now = CACurrentMediaTime()
-        for i in 0..<attributedString.length {
-            let ch = attributedString.string[i]
-            if ch.isNewline || ch.isWhitespace { continue }
-
-            let range = NSMakeRange(i, 1)
-
+        for (index, character) in attributedString.string.enumerated() {
+            if character.isNewline || character.isWhitespace { continue }
+            let range = NSMakeRange(index, 1)
             attributedString.enumerateAttribute(
-            .foregroundColor,
-            in: range,
-            options: .longestEffectiveRangeNotRequired) { (value, range, stop) in
-
-                guard let textColor = value as? UIColor else {
-                    return
-                }
-                
-                let currentAlpha = textColor.cgColor.alpha
-
-                let shouldUpdateAlpha = (isFadeOut && currentAlpha > 0)
-                    || (!isFadeOut && currentAlpha < 0)
-                    || ((now - beginTime) >= characterAnimationDelays[i])
-
-                if !shouldUpdateAlpha {
-                    return
-                }
-
-                var percentage = (now - beginTime - characterAnimationDelays[i]) / characterAnimationDurations[i]
-                
-                if isFadeOut {
-                    percentage = 1 - percentage
-                }
-
-                let newColor = textColor.withAlphaComponent(CGFloat(percentage))
-                attributedString.addAttribute(.foregroundColor, value: newColor, range: range)
+                .foregroundColor,
+                in: range,
+                options: .longestEffectiveRangeNotRequired) { (value, range, stop) in
+                    
+                    guard let textColor = value as? UIColor else {
+                        return
+                    }
+                    
+//                    let currentAlpha = textColor.cgColor.alpha
+//
+//                    let shouldUpdateAlpha = (isFadeOut && currentAlpha > 0)
+//                        || (!isFadeOut && currentAlpha < 0)
+//                        || ((now - beginTime) >= characterAnimationDelays[index])
+//
+//                    if !shouldUpdateAlpha {
+//                        return
+//                    }
+//
+                    var percentage = (now - beginTime - characterAnimationDelays[index]) / characterAnimationDurations[index]
+                    
+                    if isFadeOut {
+                        percentage = 1 - percentage
+                    }
+                    
+                    let newColor = textColor.withAlphaComponent(CGFloat(percentage))
+                    attributedString.addAttribute(.foregroundColor, value: newColor, range: range)
+                    print(percentage)
+                    
             }
-            
-            attributedText = attributedString
         }
-        
-        if (now > endTime) {
-            displaylink.isPaused = true
-            
-            if isFadeOut {
-                isFadeOut = false
-            }
-            
-            self.competion?()
-        }
+        attributedText = attributedString
     }
     
     func makeDisplayLink() -> CADisplayLink {
-        let displayLink =  CADisplayLink(target: self, selector: #selector(updateAttributedString))
+        let displayLink =  CADisplayLink(target: self, selector: #selector(updateLabel))
         displayLink.isPaused = true
         displayLink.add(to: .main, forMode: .default)
         return displayLink
     }
 
-    private func makeMutableAttributedString(with text: String) -> NSMutableAttributedString {
+    private func makeMutableAttributedString(with text: String, withAlphaComponent alpha: CGFloat = 0.0) -> NSMutableAttributedString {
         let mutableAttributedString = NSMutableAttributedString(string: text)
-        let attributes = makeAttributes()
+        let attributes = makeAttributes(withAlphaComponent: alpha)
         mutableAttributedString.addAttributes(attributes, range: NSMakeRange(0, text.count))
         return mutableAttributedString
     }
@@ -164,11 +163,5 @@ class ShiningLabel: UILabel {
         let color = textColor.withAlphaComponent(0)
         let attributes: [NSAttributedString.Key: Any] = [.foregroundColor: color]
         return attributes
-    }
-}
-
-private extension String {
-    subscript (i: Int) -> Character {
-        return self[index(startIndex, offsetBy: i)]
     }
 }

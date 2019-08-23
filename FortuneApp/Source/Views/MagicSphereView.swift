@@ -74,7 +74,12 @@ class MagicSphereView: UIView {
         NSLayoutConstraint.activate(layoutConstraints)
     }
     
-    func showHint() {
+    func showHint(animated: Bool = true) {
+        if !animated {
+            hintLabel.alpha = 1
+            return
+        }
+        
         hintLabel.alpha = 0
         hintLabel.fadeIn(2.0, delay: 0, completion: {_ in })
     }
@@ -83,27 +88,22 @@ class MagicSphereView: UIView {
         sphereImageView.shake()
     }
     
-    func update(_ prediction: String?, animated: Bool = true) {
+    func update(_ prediction: String?, animated: Bool = true, completion: (() -> Void)? = nil) {
         
         if !animated {
             predictionLabel.text = prediction
+            completion?()
             return
         }
         
-        let hidePredictionAfter5Sec: (() -> Void) = { [unowned self] in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) { [unowned self] in
-                self.predictionLabel.fadeOut()
-            }
+        func thenUpdatePrediction() {
+            predictionLabel.text = prediction
+            predictionLabel.shine(completion)
         }
         
-        let updatePrediction: (() -> Void) = { [unowned self] in
-            self.predictionLabel.text = prediction
-            self.predictionLabel.shine()
-        }
-       
         sphereImageView.shake { [unowned self] in
-            let isHiddenPrediction = self.predictionLabel.isHidden
-            isHiddenPrediction ? updatePrediction() : self.predictionLabel.fadeOut(updatePrediction)
+            let isPredictionHidden = self.predictionLabel.isHidden
+            isPredictionHidden ? thenUpdatePrediction() : self.predictionLabel.fadeOut(thenUpdatePrediction)
         }        
     }
     
@@ -150,6 +150,7 @@ class MagicSphereView: UIView {
         v.textColor = UIColor(red: 0.4529309869, green: 0.5190772414, blue: 0.595322907, alpha: 1)
         v.numberOfLines = 0
         v.textAlignment = .center
+        v.fadingOutDuration = 8.0 //4.5
         return v
     }
     

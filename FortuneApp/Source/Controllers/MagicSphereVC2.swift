@@ -15,6 +15,7 @@ class MagicSphereVC2: NiblessViewController {
     private lazy var rootView: MagicSphereView = self.makeRootView()
     private let rateAppService: RateAppService
     private let predictorManager: PredictorManager
+    private weak var timer: Timer?
     
     init(rateAppService: RateAppService, predictorManager: PredictorManager) {
         self.rateAppService = rateAppService
@@ -47,7 +48,7 @@ class MagicSphereVC2: NiblessViewController {
         }
         
         NSObject.cancelPreviousPerformRequests(withTarget: self)
-        //rootView.hidePrediction()
+        timer?.invalidate()
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
@@ -62,8 +63,15 @@ class MagicSphereVC2: NiblessViewController {
     
     private func updatePrediction() {
         let prediction = predictorManager.getRandomPrediction()
-        rootView.update(prediction, animated: true)
-        //rootView.hidePrediction()
+        //rootView.update(prediction, animated: true, completion: autoHidePrediction)
+        rootView.update(prediction, animated: true, completion: nil)
+    }
+    
+    private func autoHidePrediction() {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { [weak rootView] (_) in
+            rootView?.hidePrediction()
+        }
     }
     
     private func show(_ error: Error) {
