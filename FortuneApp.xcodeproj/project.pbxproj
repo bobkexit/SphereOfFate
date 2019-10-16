@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		35065FEF2042F092001E6AE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35065FEE2042F092001E6AE1 /* Constants.swift */; };
+		35193EC72356266700D2652E /* BlingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35193EC62356266700D2652E /* BlingLabel.swift */; };
 		353BB1CD203DE1C40061CF48 /* PredictionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353BB1CC203DE1C40061CF48 /* PredictionService.swift */; };
 		35600DA7203DDCAA005CEAD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35600DA6203DDCAA005CEAD9 /* AppDelegate.swift */; };
 		35600DA9203DDCAA005CEAD9 /* MagicSphereVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35600DA8203DDCAA005CEAD9 /* MagicSphereVC.swift */; };
@@ -26,6 +27,7 @@
 		359C8BC0230B3417003024F1 /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BBF230B3417003024F1 /* NiblessViewController.swift */; };
 		359C8BC3230C6AF1003024F1 /* ShiningLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BC2230C6AF1003024F1 /* ShiningLabel.swift */; };
 		35BC1A50203F490500D12347 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC1A4F203F490500D12347 /* GradientView.swift */; };
+		35D5A59A23537A5000E3BE1E /* FNBlingBlingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5A59923537A5000E3BE1E /* FNBlingBlingLabel.swift */; };
 		35D814C72046EA7500690159 /* FortuneAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D814C62046EA7500690159 /* FortuneAppTests.swift */; };
 		35D814DE2046FBA600690159 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 35D814DC2046FBA600690159 /* Localizable.strings */; };
 		35D814E32046FE0B00690159 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D814E22046FE0B00690159 /* String+Ext.swift */; };
@@ -44,6 +46,7 @@
 
 /* Begin PBXFileReference section */
 		35065FEE2042F092001E6AE1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		35193EC62356266700D2652E /* BlingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlingLabel.swift; sourceTree = "<group>"; };
 		353BB1CC203DE1C40061CF48 /* PredictionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionService.swift; sourceTree = "<group>"; };
 		35600DA3203DDCAA005CEAD9 /* FortuneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FortuneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35600DA6203DDCAA005CEAD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +68,7 @@
 		359C8BBF230B3417003024F1 /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
 		359C8BC2230C6AF1003024F1 /* ShiningLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiningLabel.swift; sourceTree = "<group>"; };
 		35BC1A4F203F490500D12347 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		35D5A59923537A5000E3BE1E /* FNBlingBlingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNBlingBlingLabel.swift; sourceTree = "<group>"; };
 		35D814C42046EA7500690159 /* FortuneAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FortuneAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D814C62046EA7500690159 /* FortuneAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAppTests.swift; sourceTree = "<group>"; };
 		35D814C82046EA7500690159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -169,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				359C8BC2230C6AF1003024F1 /* ShiningLabel.swift */,
+				35193EC62356266700D2652E /* BlingLabel.swift */,
 			);
 			path = "New Group";
 			sourceTree = "<group>";
@@ -180,6 +185,7 @@
 				35BC1A4F203F490500D12347 /* GradientView.swift */,
 				356AAEF2204448C300412161 /* UIActivity.swift */,
 				359C8BB7230B191C003024F1 /* MagicSphereView.swift */,
+				35D5A59923537A5000E3BE1E /* FNBlingBlingLabel.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -413,9 +419,11 @@
 				353BB1CD203DE1C40061CF48 /* PredictionService.swift in Sources */,
 				359C8BBA230B2333003024F1 /* UIView+Ext.swift in Sources */,
 				359C8BBC230B2767003024F1 /* MagicSphereVC2.swift in Sources */,
+				35D5A59A23537A5000E3BE1E /* FNBlingBlingLabel.swift in Sources */,
 				359C8BC0230B3417003024F1 /* NiblessViewController.swift in Sources */,
 				356AAEF620444E0700412161 /* RateAppHelper.swift in Sources */,
 				35600DA9203DDCAA005CEAD9 /* MagicSphereVC.swift in Sources */,
+				35193EC72356266700D2652E /* BlingLabel.swift in Sources */,
 				35D814E32046FE0B00690159 /* String+Ext.swift in Sources */,
 				35BC1A50203F490500D12347 /* GradientView.swift in Sources */,
 				356AAEF3204448C300412161 /* UIActivity.swift in Sources */,

@@ -38,6 +38,7 @@ class PredictionService: SyncService, Predictor {
     static let shared = PredictionService()
     
     private var predictions: [String] = UserDefaults.standard.stringArray(forKey: UserDefaults.Keys.predictons) ?? []
+    
     private var hashValue: Int = UserDefaults.standard.integer(forKey: UserDefaults.Keys.predictonsHash)
     
     private init() { }

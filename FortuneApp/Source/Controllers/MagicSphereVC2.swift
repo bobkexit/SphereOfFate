@@ -12,9 +12,12 @@ class MagicSphereVC2: NiblessViewController {
     
     typealias PredictorManager = Predictor & SyncService
     
-    private lazy var rootView: MagicSphereView = self.makeRootView()
+    private lazy var rootView: MagicSphereView = MagicSphereView()
+    
     private let rateAppService: RateAppService
+    
     private let predictorManager: PredictorManager
+    
     private weak var timer: Timer?
     
     init(rateAppService: RateAppService, predictorManager: PredictorManager) {
@@ -29,6 +32,12 @@ class MagicSphereVC2: NiblessViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        rootView.shareButton.addTarget(
+            self, action: #selector(shareButtonTapped(_:)), for: .touchUpInside)
+        
+        rootView.rateAppButton.addTarget(
+            self, action: #selector(rateAppButtonTapped(_:)), for: .touchUpInside)
         
         predictorManager.sync { [unowned self] error in
             
@@ -51,19 +60,31 @@ class MagicSphereVC2: NiblessViewController {
         timer?.invalidate()
     }
     
+    override func motionCancelled(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        guard event?.subtype == .motionShake else {
+            return
+        }
+        updatePrediction()
+    }
+    
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
         guard event?.subtype == .motionShake else {
             return
         }
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { [unowned self] in
-            self.updatePrediction()
-        }
+        updatePrediction()
+    }
+    
+    @objc private func rateAppButtonTapped(_ sender: UIButton) {
+        updatePrediction()
+    }
+    
+    @objc private func shareButtonTapped(_ sender: UIButton) {
+        updatePrediction()
     }
     
     private func updatePrediction() {
         let prediction = predictorManager.getRandomPrediction()
-        //rootView.update(prediction, animated: true, completion: autoHidePrediction)
         rootView.update(prediction, animated: true, completion: nil)
     }
     
@@ -88,21 +109,5 @@ class MagicSphereVC2: NiblessViewController {
         
         alert.addAction(cancelAction)
         present(alert, animated: true)
-    }
-    
-    private func makeRootView() -> MagicSphereView {
-        let v = MagicSphereView()
-        v.delegate = self
-        return v
-    }
-}
-
-extension MagicSphereVC2: MagicSphereViewDelagate {
-    func magicSphereViewDidTapShareButton(_ magicSphereView: MagicSphereView) {
-        updatePrediction()
-    }
-    
-    func magicSphereViewDidTapRateButton(_ magicSphereView: MagicSphereView) {
-        updatePrediction()
     }
 }

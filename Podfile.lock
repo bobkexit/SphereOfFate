@@ -18,7 +18,7 @@ DEPENDENCIES:
   - RQShineLabel
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - FBSDKCoreKit
     - FBSDKLoginKit
     - FBSDKShareKit
@@ -32,4 +32,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 86939345f0e9f2ce679c8851243fca4b98103e80
 
-COCOAPODS: 1.7.5
+COCOAPODS: 1.8.3
