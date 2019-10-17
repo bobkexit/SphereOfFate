@@ -35,12 +35,12 @@ class BlingLabel: UILabel {
         }
     }
     
-    public func fadeIn(completion: (() -> Void)? = nil) {
+    public func display(completion: (() -> Void)? = nil) {
         animationState = .fadingIn
         animateLabel(with: completion)
     }
     
-    public func fadOut(completion: (() -> Void)? = nil) {
+    public func dismiss(completion: (() -> Void)? = nil) {
         animationState = .fadingOut
         animateLabel(with: completion)
     }
@@ -69,9 +69,9 @@ class BlingLabel: UILabel {
     private func stopAnimation() {
         displayLink?.isPaused = true
         beginTime = nil
-        //endTime = nil
-        completionHandler = nil
         animationState = .none
+        completionHandler?()
+        completionHandler = nil
     }
     
     @objc private func updateAttributedString() {
@@ -137,6 +137,7 @@ class BlingLabel: UILabel {
     private func makeAttributedString(for text: String, with state: AnimationState) -> NSMutableAttributedString {
         
         let resultString = NSMutableAttributedString(string: text)
+        alpha = 1.0
         
         switch state {
         case .fadingIn:

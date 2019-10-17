@@ -7,20 +7,27 @@
 //
 
 import UIKit
-import RQShineLabel
+
+protocol MagicSphereViewDelegate: AnyObject {
+    func magicSphereViewDidTapRateAppButton(_ magicSphereView: MagicSphereView)
+    func magicSphereView(_ magicSphereView: MagicSphereView, didTapShare prediction: String?)
+}
 
 class MagicSphereView: UIView {
+    
+    weak var delegate: MagicSphereViewDelegate?
     
     // MARK: - UI
     private(set) lazy var hintLabel: UILabel = {
         let v = UILabel()
         v.translatesAutoresizingMaskIntoConstraints = false
-        v.text = "Shake the sphere"
+        v.text = "Shake the sphere".localized
         v.textAlignment = .center
         v.font = UIFont.systemFont(ofSize: 45.0, weight: .light)
         v.textColor = .white
         return v
     } ()
+    
     
     private(set) lazy var predictionLabel: BlingLabel = {
         let v = BlingLabel()
@@ -30,11 +37,10 @@ class MagicSphereView: UIView {
         v.textColor = UIColor(red: 0.4529309869, green: 0.5190772414, blue: 0.595322907, alpha: 1)
         v.numberOfLines = 0
         v.textAlignment = .center
-        //v.needAnimation = true
         v.numberOfLines = 0
         v.fadeInDuration = 1.5
         v.fadeOutDuration = 1.5
-        
+
         return v
     } ()
     
@@ -51,6 +57,7 @@ class MagicSphereView: UIView {
         let image = UIImage(named: "Share Icon Solid")
         v.setImage(image, for: .normal)
         v.setImage(image, for: .selected)
+        v.addTarget(self, action: #selector(shareButtonTapped(_:)), for: .touchUpInside)
         return v
     } ()
     
@@ -60,6 +67,7 @@ class MagicSphereView: UIView {
         let image = UIImage(named: "RateApp Icon Solid")
         v.setImage(image, for: .normal)
         v.setImage(image, for: .selected)
+        v.addTarget(self, action: #selector(rateAppButtonTapped(_:)), for: .touchUpInside)
         return v
     } ()
     
@@ -104,7 +112,6 @@ class MagicSphereView: UIView {
     }
     
     private func initView() {
-        
         addSubview(topContainer)
         addSubview(middleContainer)
         addSubview(bottomContainer)
@@ -179,35 +186,38 @@ class MagicSphereView: UIView {
         }
     }
     
-    func showHint(animated: Bool = true) {
-        if !animated {
-            hintLabel.alpha = 1
-            return
-        }
-        
+    func displayHint() {
         hintLabel.alpha = 0
         hintLabel.fadeIn(2.0, delay: 0, completion: {_ in })
     }
     
-    func update(_ prediction: String?, animated: Bool = true, completion: (() -> Void)? = nil) {
-        if !animated {
-            predictionLabel.text = prediction
-            completion?()
-            return
-        }
-    
+    func display(_ prediction: String?, completion: (() -> Void)? = nil) {
         sphereImageView.shake { [unowned self] in
             self.predictionLabel.text = prediction
-            self.predictionLabel.fadeIn()
+            self.predictionLabel.display {
+                self.buttonStack.fadeIn()
+            }
         }        
     }
     
-    func hidePrediction(_ animated: Bool = true) {
-        if animated {
-            predictionLabel.fadeOut()
-        } else {
-            predictionLabel.isHidden = true
+    func dismissPrediction(animated: Bool = true) {
+        
+        if !animated {
+            predictionLabel.alpha = 0
+            buttonStack.alpha = 0
+            return
         }
+        
+        predictionLabel.dismiss()
+        buttonStack.fadeOut()
+    }
+    
+    @objc private func rateAppButtonTapped(_ sender: UIButton) {
+        delegate?.magicSphereViewDidTapRateAppButton(self)
+    }
+    
+    @objc private func shareButtonTapped(_ sender: UIButton) {
+        delegate?.magicSphereView(self, didTapShare: predictionLabel.text)
     }
     
     private func makeViewContainer() -> UIView {

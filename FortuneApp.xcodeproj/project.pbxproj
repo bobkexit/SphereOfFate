@@ -7,31 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		35065FEF2042F092001E6AE1 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35065FEE2042F092001E6AE1 /* Constants.swift */; };
 		35193EC72356266700D2652E /* BlingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35193EC62356266700D2652E /* BlingLabel.swift */; };
-		353BB1CD203DE1C40061CF48 /* PredictionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353BB1CC203DE1C40061CF48 /* PredictionService.swift */; };
+		353BB1CD203DE1C40061CF48 /* PredictionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 353BB1CC203DE1C40061CF48 /* PredictionController.swift */; };
 		35600DA7203DDCAA005CEAD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35600DA6203DDCAA005CEAD9 /* AppDelegate.swift */; };
-		35600DA9203DDCAA005CEAD9 /* MagicSphereVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35600DA8203DDCAA005CEAD9 /* MagicSphereVC.swift */; };
-		35600DAC203DDCAA005CEAD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAA203DDCAA005CEAD9 /* Main.storyboard */; };
 		35600DAE203DDCAA005CEAD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAD203DDCAA005CEAD9 /* Assets.xcassets */; };
 		35600DB1203DDCAA005CEAD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAF203DDCAA005CEAD9 /* LaunchScreen.storyboard */; };
-		356AAEF3204448C300412161 /* UIActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356AAEF2204448C300412161 /* UIActivity.swift */; };
-		356AAEF620444E0700412161 /* RateAppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356AAEF520444E0700412161 /* RateAppHelper.swift */; };
+		356AAEF3204448C300412161 /* PredictionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356AAEF2204448C300412161 /* PredictionPost.swift */; };
+		356AAEF620444E0700412161 /* RateAppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356AAEF520444E0700412161 /* RateAppController.swift */; };
 		3594B3682042F7E20006F77C /* data.ru.json in Resources */ = {isa = PBXBuildFile; fileRef = 3594B3672042F7E20006F77C /* data.ru.json */; };
 		3594B36A2042F7E90006F77C /* data.en.json in Resources */ = {isa = PBXBuildFile; fileRef = 3594B3692042F7E90006F77C /* data.en.json */; };
 		3595DA69209B4780008DFFA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3595DA6B209B4780008DFFA7 /* InfoPlist.strings */; };
 		359C8BB8230B191C003024F1 /* MagicSphereView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BB7230B191C003024F1 /* MagicSphereView.swift */; };
 		359C8BBA230B2333003024F1 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BB9230B2333003024F1 /* UIView+Ext.swift */; };
-		359C8BBC230B2767003024F1 /* MagicSphereVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BBB230B2767003024F1 /* MagicSphereVC2.swift */; };
+		359C8BBC230B2767003024F1 /* MagicSphereViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BBB230B2767003024F1 /* MagicSphereViewController.swift */; };
 		359C8BBE230B3103003024F1 /* UserDefaults+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BBD230B3103003024F1 /* UserDefaults+Ext.swift */; };
 		359C8BC0230B3417003024F1 /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BBF230B3417003024F1 /* NiblessViewController.swift */; };
-		359C8BC3230C6AF1003024F1 /* ShiningLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BC2230C6AF1003024F1 /* ShiningLabel.swift */; };
-		35BC1A50203F490500D12347 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35BC1A4F203F490500D12347 /* GradientView.swift */; };
-		35D5A59A23537A5000E3BE1E /* FNBlingBlingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5A59923537A5000E3BE1E /* FNBlingBlingLabel.swift */; };
 		35D814C72046EA7500690159 /* FortuneAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D814C62046EA7500690159 /* FortuneAppTests.swift */; };
 		35D814DE2046FBA600690159 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 35D814DC2046FBA600690159 /* Localizable.strings */; };
 		35D814E32046FE0B00690159 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D814E22046FE0B00690159 /* String+Ext.swift */; };
-		DEA426D14AE43228363C64F4 /* Pods_FortuneApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45CB0E182D419F7837867841 /* Pods_FortuneApp.framework */; };
+		35DC5A0E2358E5A100AB3FFA /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DC5A0D2358E5A100AB3FFA /* Protocols.swift */; };
+		35DC5A152358E99900AB3FFA /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DC5A142358E99900AB3FFA /* AppSettings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,42 +40,33 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		35065FEE2042F092001E6AE1 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		35193EC62356266700D2652E /* BlingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlingLabel.swift; sourceTree = "<group>"; };
-		353BB1CC203DE1C40061CF48 /* PredictionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionService.swift; sourceTree = "<group>"; };
+		353BB1CC203DE1C40061CF48 /* PredictionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionController.swift; sourceTree = "<group>"; };
 		35600DA3203DDCAA005CEAD9 /* FortuneApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FortuneApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		35600DA6203DDCAA005CEAD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		35600DA8203DDCAA005CEAD9 /* MagicSphereVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicSphereVC.swift; sourceTree = "<group>"; };
-		35600DAB203DDCAA005CEAD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		35600DAD203DDCAA005CEAD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		35600DB0203DDCAA005CEAD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		35600DB2203DDCAA005CEAD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		356AAEF2204448C300412161 /* UIActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIActivity.swift; sourceTree = "<group>"; };
-		356AAEF520444E0700412161 /* RateAppHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAppHelper.swift; sourceTree = "<group>"; };
+		356AAEF2204448C300412161 /* PredictionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionPost.swift; sourceTree = "<group>"; };
+		356AAEF520444E0700412161 /* RateAppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAppController.swift; sourceTree = "<group>"; };
 		3594B3672042F7E20006F77C /* data.ru.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.ru.json; sourceTree = "<group>"; };
 		3594B3692042F7E90006F77C /* data.en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.en.json; sourceTree = "<group>"; };
 		3595DA6A209B4780008DFFA7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		3595DA6C209B4785008DFFA7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		359C8BB7230B191C003024F1 /* MagicSphereView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicSphereView.swift; sourceTree = "<group>"; };
 		359C8BB9230B2333003024F1 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
-		359C8BBB230B2767003024F1 /* MagicSphereVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicSphereVC2.swift; sourceTree = "<group>"; };
+		359C8BBB230B2767003024F1 /* MagicSphereViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagicSphereViewController.swift; sourceTree = "<group>"; };
 		359C8BBD230B3103003024F1 /* UserDefaults+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Ext.swift"; sourceTree = "<group>"; };
 		359C8BBF230B3417003024F1 /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
-		359C8BC2230C6AF1003024F1 /* ShiningLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShiningLabel.swift; sourceTree = "<group>"; };
-		35BC1A4F203F490500D12347 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		35D5A59923537A5000E3BE1E /* FNBlingBlingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FNBlingBlingLabel.swift; sourceTree = "<group>"; };
 		35D814C42046EA7500690159 /* FortuneAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FortuneAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		35D814C62046EA7500690159 /* FortuneAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAppTests.swift; sourceTree = "<group>"; };
 		35D814C82046EA7500690159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		35D814DB2046FB2A00690159 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
 		35D814DD2046FBA600690159 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
-		35D814DF2046FC7600690159 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		35D814E02046FC7600690159 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		35D814E12046FC7600690159 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		35D814E22046FE0B00690159 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
-		45CB0E182D419F7837867841 /* Pods_FortuneApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FortuneApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		67023814ADAA9863FCB97479 /* Pods-FortuneApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FortuneApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-FortuneApp/Pods-FortuneApp.release.xcconfig"; sourceTree = "<group>"; };
-		80726E9128EE82C4E3AF8969 /* Pods-FortuneApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FortuneApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FortuneApp/Pods-FortuneApp.debug.xcconfig"; sourceTree = "<group>"; };
+		35DC5A0D2358E5A100AB3FFA /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		35DC5A142358E99900AB3FFA /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +74,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DEA426D14AE43228363C64F4 /* Pods_FortuneApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,39 +87,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		345CA6695B34AA62C69BD0B7 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				45CB0E182D419F7837867841 /* Pods_FortuneApp.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		35065FED2042F079001E6AE1 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				356AAEF520444E0700412161 /* RateAppHelper.swift */,
-				35065FEE2042F092001E6AE1 /* Constants.swift */,
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
-		353BB1CE203DE1D80061CF48 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				353BB1CC203DE1C40061CF48 /* PredictionService.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		35600D9A203DDCA9005CEAD9 = {
 			isa = PBXGroup;
 			children = (
 				35600DA5203DDCAA005CEAD9 /* FortuneApp */,
 				35D814C52046EA7500690159 /* FortuneAppTests */,
 				35600DA4203DDCAA005CEAD9 /* Products */,
-				7A36D5AFC4C13502DC15A858 /* Pods */,
-				345CA6695B34AA62C69BD0B7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,8 +108,13 @@
 		35600DA5203DDCAA005CEAD9 /* FortuneApp */ = {
 			isa = PBXGroup;
 			children = (
-				35C109F8205008160012F158 /* Source */,
-				35C109FA205008340012F158 /* Storyboards */,
+				35600DA6203DDCAA005CEAD9 /* AppDelegate.swift */,
+				35DC5A142358E99900AB3FFA /* AppSettings.swift */,
+				35DC5A0D2358E5A100AB3FFA /* Protocols.swift */,
+				35DC5A112358E81000AB3FFA /* Controllers */,
+				35DC5A132358E82900AB3FFA /* Views */,
+				35DC5A122358E81900AB3FFA /* ViewControllers */,
+				3572F600203FF8C200406F08 /* Extensions */,
 				35C109FB2050083D0012F158 /* Resources */,
 				35600DAD203DDCAA005CEAD9 /* Assets.xcassets */,
 				35600DB2203DDCAA005CEAD9 /* Info.plist */,
@@ -169,63 +132,11 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		359C8BC1230C6ACD003024F1 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-				359C8BC2230C6AF1003024F1 /* ShiningLabel.swift */,
-				35193EC62356266700D2652E /* BlingLabel.swift */,
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
-		35BC1A4D203F487700D12347 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				359C8BC1230C6ACD003024F1 /* New Group */,
-				35BC1A4F203F490500D12347 /* GradientView.swift */,
-				356AAEF2204448C300412161 /* UIActivity.swift */,
-				359C8BB7230B191C003024F1 /* MagicSphereView.swift */,
-				35D5A59923537A5000E3BE1E /* FNBlingBlingLabel.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		35BC1A4E203F488700D12347 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				359C8BBF230B3417003024F1 /* NiblessViewController.swift */,
-				35600DA8203DDCAA005CEAD9 /* MagicSphereVC.swift */,
-				359C8BBB230B2767003024F1 /* MagicSphereVC2.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		35C109F8205008160012F158 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				35BC1A4D203F487700D12347 /* Views */,
-				35BC1A4E203F488700D12347 /* Controllers */,
-				353BB1CE203DE1D80061CF48 /* Services */,
-				35065FED2042F079001E6AE1 /* Utilities */,
-				3572F600203FF8C200406F08 /* Extensions */,
-				35600DA6203DDCAA005CEAD9 /* AppDelegate.swift */,
-			);
-			path = Source;
-			sourceTree = "<group>";
-		};
-		35C109FA205008340012F158 /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				35600DAA203DDCAA005CEAD9 /* Main.storyboard */,
-				35600DAF203DDCAA005CEAD9 /* LaunchScreen.storyboard */,
-			);
-			path = Storyboards;
-			sourceTree = "<group>";
-		};
 		35C109FB2050083D0012F158 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				35C109FC20500DFC0012F158 /* Data */,
+				35600DAF203DDCAA005CEAD9 /* LaunchScreen.storyboard */,
 				35D814DC2046FBA600690159 /* Localizable.strings */,
 				3595DA6B209B4780008DFFA7 /* InfoPlist.strings */,
 			);
@@ -250,13 +161,32 @@
 			path = FortuneAppTests;
 			sourceTree = "<group>";
 		};
-		7A36D5AFC4C13502DC15A858 /* Pods */ = {
+		35DC5A112358E81000AB3FFA /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				80726E9128EE82C4E3AF8969 /* Pods-FortuneApp.debug.xcconfig */,
-				67023814ADAA9863FCB97479 /* Pods-FortuneApp.release.xcconfig */,
+				356AAEF520444E0700412161 /* RateAppController.swift */,
+				353BB1CC203DE1C40061CF48 /* PredictionController.swift */,
+				356AAEF2204448C300412161 /* PredictionPost.swift */,
 			);
-			name = Pods;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		35DC5A122358E81900AB3FFA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				359C8BBF230B3417003024F1 /* NiblessViewController.swift */,
+				359C8BBB230B2767003024F1 /* MagicSphereViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		35DC5A132358E82900AB3FFA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				35193EC62356266700D2652E /* BlingLabel.swift */,
+				359C8BB7230B191C003024F1 /* MagicSphereView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,11 +196,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 35600DB5203DDCAA005CEAD9 /* Build configuration list for PBXNativeTarget "FortuneApp" */;
 			buildPhases = (
-				45257A707D4A9A94F68CD80F /* [CP] Check Pods Manifest.lock */,
 				35600D9F203DDCAA005CEAD9 /* Sources */,
 				35600DA0203DDCAA005CEAD9 /* Frameworks */,
 				35600DA1203DDCAA005CEAD9 /* Resources */,
-				2CE70BE5C2F8360A08CDB9D0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -353,7 +281,6 @@
 				35D814DE2046FBA600690159 /* Localizable.strings in Resources */,
 				35600DAE203DDCAA005CEAD9 /* Assets.xcassets in Resources */,
 				3594B3682042F7E20006F77C /* data.ru.json in Resources */,
-				35600DAC203DDCAA005CEAD9 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,72 +293,24 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		2CE70BE5C2F8360A08CDB9D0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FortuneApp/Pods-FortuneApp-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
-				"${BUILT_PRODUCTS_DIR}/FBSDKShareKit/FBSDKShareKit.framework",
-				"${BUILT_PRODUCTS_DIR}/RQShineLabel/RQShineLabel.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKShareKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RQShineLabel.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FortuneApp/Pods-FortuneApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		45257A707D4A9A94F68CD80F /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-FortuneApp-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		35600D9F203DDCAA005CEAD9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				353BB1CD203DE1C40061CF48 /* PredictionService.swift in Sources */,
+				353BB1CD203DE1C40061CF48 /* PredictionController.swift in Sources */,
 				359C8BBA230B2333003024F1 /* UIView+Ext.swift in Sources */,
-				359C8BBC230B2767003024F1 /* MagicSphereVC2.swift in Sources */,
-				35D5A59A23537A5000E3BE1E /* FNBlingBlingLabel.swift in Sources */,
+				359C8BBC230B2767003024F1 /* MagicSphereViewController.swift in Sources */,
 				359C8BC0230B3417003024F1 /* NiblessViewController.swift in Sources */,
-				356AAEF620444E0700412161 /* RateAppHelper.swift in Sources */,
-				35600DA9203DDCAA005CEAD9 /* MagicSphereVC.swift in Sources */,
+				356AAEF620444E0700412161 /* RateAppController.swift in Sources */,
 				35193EC72356266700D2652E /* BlingLabel.swift in Sources */,
 				35D814E32046FE0B00690159 /* String+Ext.swift in Sources */,
-				35BC1A50203F490500D12347 /* GradientView.swift in Sources */,
-				356AAEF3204448C300412161 /* UIActivity.swift in Sources */,
+				356AAEF3204448C300412161 /* PredictionPost.swift in Sources */,
 				359C8BBE230B3103003024F1 /* UserDefaults+Ext.swift in Sources */,
 				359C8BB8230B191C003024F1 /* MagicSphereView.swift in Sources */,
 				35600DA7203DDCAA005CEAD9 /* AppDelegate.swift in Sources */,
-				359C8BC3230C6AF1003024F1 /* ShiningLabel.swift in Sources */,
-				35065FEF2042F092001E6AE1 /* Constants.swift in Sources */,
+				35DC5A152358E99900AB3FFA /* AppSettings.swift in Sources */,
+				35DC5A0E2358E5A100AB3FFA /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,16 +333,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		35600DAA203DDCAA005CEAD9 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				35600DAB203DDCAA005CEAD9 /* Base */,
-				35D814DB2046FB2A00690159 /* en */,
-				35D814DF2046FC7600690159 /* ru */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		35600DAF203DDCAA005CEAD9 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -609,7 +478,6 @@
 		};
 		35600DB6203DDCAA005CEAD9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 80726E9128EE82C4E3AF8969 /* Pods-FortuneApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -626,7 +494,6 @@
 		};
 		35600DB7203DDCAA005CEAD9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 67023814ADAA9863FCB97479 /* Pods-FortuneApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

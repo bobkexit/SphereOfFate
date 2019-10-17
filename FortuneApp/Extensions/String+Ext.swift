@@ -9,9 +9,6 @@
 import Foundation
 
 extension String {
-    init(key: LocalizationKeys) {
-        self = NSLocalizedString(key.rawValue, comment: "")
-    }
     
     func capitalizingFirstLetter() -> String {
         return prefix(1).capitalized + dropFirst()

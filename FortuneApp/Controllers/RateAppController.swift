@@ -9,19 +9,8 @@
 import Foundation
 import StoreKit
 
-protocol RateAppService {
-    func requestReview()
-    func requestReviewIfNeeded()
-}
+class RateAppController: RateAppManager {
 
-class RateAppHelper: RateAppService {
-    
-    static let shared = RateAppHelper()
-
-    private let userDefaults = UserDefaults.standard
-    
-    private init() { }
-    
     func requestReviewIfNeeded() {
         incrementLaunchesCount()
         
@@ -44,10 +33,10 @@ class RateAppHelper: RateAppService {
     
     private func incrementLaunchesCount() {
          let appLaunchesCount = getLaunchesCount()
-         userDefaults.set(appLaunchesCount + 1, forKey: UserDefaults.Keys.appLaunchesCount)
+         UserDefaults.standard.set(appLaunchesCount + 1, forKey: UserDefaults.Key.appLaunchesCount)
     }
     
     private func getLaunchesCount() -> Int {
-        return userDefaults.integer(forKey: UserDefaults.Keys.appLaunchesCount)
+        return UserDefaults.standard.integer(forKey: UserDefaults.Key.appLaunchesCount)
     }
 }
