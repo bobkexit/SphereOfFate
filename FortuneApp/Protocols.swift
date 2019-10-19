@@ -18,6 +18,7 @@ protocol PredictionManager {
 }
 
 protocol RateAppManager {
+    var isReviewRequested: Bool { get } // for Unit Tests
     func requestReview()
     func requestReviewIfNeeded()
 }

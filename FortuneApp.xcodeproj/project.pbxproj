@@ -14,6 +14,8 @@
 		35600DB1203DDCAA005CEAD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 35600DAF203DDCAA005CEAD9 /* LaunchScreen.storyboard */; };
 		356AAEF3204448C300412161 /* PredictionPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356AAEF2204448C300412161 /* PredictionPost.swift */; };
 		356AAEF620444E0700412161 /* RateAppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 356AAEF520444E0700412161 /* RateAppController.swift */; };
+		357A0C16235B0A7700DA695D /* PredictionManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357A0C15235B0A7700DA695D /* PredictionManagerTests.swift */; };
+		357A0C18235B0E0700DA695D /* RateAppManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357A0C17235B0E0700DA695D /* RateAppManagerTests.swift */; };
 		3594B3682042F7E20006F77C /* data.ru.json in Resources */ = {isa = PBXBuildFile; fileRef = 3594B3672042F7E20006F77C /* data.ru.json */; };
 		3594B36A2042F7E90006F77C /* data.en.json in Resources */ = {isa = PBXBuildFile; fileRef = 3594B3692042F7E90006F77C /* data.en.json */; };
 		3595DA69209B4780008DFFA7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3595DA6B209B4780008DFFA7 /* InfoPlist.strings */; };
@@ -22,7 +24,6 @@
 		359C8BBC230B2767003024F1 /* MagicSphereViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BBB230B2767003024F1 /* MagicSphereViewController.swift */; };
 		359C8BBE230B3103003024F1 /* UserDefaults+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BBD230B3103003024F1 /* UserDefaults+Ext.swift */; };
 		359C8BC0230B3417003024F1 /* NiblessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359C8BBF230B3417003024F1 /* NiblessViewController.swift */; };
-		35D814C72046EA7500690159 /* FortuneAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D814C62046EA7500690159 /* FortuneAppTests.swift */; };
 		35D814DE2046FBA600690159 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 35D814DC2046FBA600690159 /* Localizable.strings */; };
 		35D814E32046FE0B00690159 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D814E22046FE0B00690159 /* String+Ext.swift */; };
 		35DC5A0E2358E5A100AB3FFA /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DC5A0D2358E5A100AB3FFA /* Protocols.swift */; };
@@ -49,6 +50,8 @@
 		35600DB2203DDCAA005CEAD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		356AAEF2204448C300412161 /* PredictionPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionPost.swift; sourceTree = "<group>"; };
 		356AAEF520444E0700412161 /* RateAppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAppController.swift; sourceTree = "<group>"; };
+		357A0C15235B0A7700DA695D /* PredictionManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PredictionManagerTests.swift; sourceTree = "<group>"; };
+		357A0C17235B0E0700DA695D /* RateAppManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RateAppManagerTests.swift; sourceTree = "<group>"; };
 		3594B3672042F7E20006F77C /* data.ru.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.ru.json; sourceTree = "<group>"; };
 		3594B3692042F7E90006F77C /* data.en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = data.en.json; sourceTree = "<group>"; };
 		3595DA6A209B4780008DFFA7 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -59,7 +62,6 @@
 		359C8BBD230B3103003024F1 /* UserDefaults+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+Ext.swift"; sourceTree = "<group>"; };
 		359C8BBF230B3417003024F1 /* NiblessViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiblessViewController.swift; sourceTree = "<group>"; };
 		35D814C42046EA7500690159 /* FortuneAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FortuneAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		35D814C62046EA7500690159 /* FortuneAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FortuneAppTests.swift; sourceTree = "<group>"; };
 		35D814C82046EA7500690159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		35D814DD2046FBA600690159 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		35D814E02046FC7600690159 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -155,8 +157,9 @@
 		35D814C52046EA7500690159 /* FortuneAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				35D814C62046EA7500690159 /* FortuneAppTests.swift */,
 				35D814C82046EA7500690159 /* Info.plist */,
+				357A0C15235B0A7700DA695D /* PredictionManagerTests.swift */,
+				357A0C17235B0E0700DA695D /* RateAppManagerTests.swift */,
 			);
 			path = FortuneAppTests;
 			sourceTree = "<group>";
@@ -166,7 +169,6 @@
 			children = (
 				356AAEF520444E0700412161 /* RateAppController.swift */,
 				353BB1CC203DE1C40061CF48 /* PredictionController.swift */,
-				356AAEF2204448C300412161 /* PredictionPost.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -183,6 +185,7 @@
 		35DC5A132358E82900AB3FFA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				356AAEF2204448C300412161 /* PredictionPost.swift */,
 				35193EC62356266700D2652E /* BlingLabel.swift */,
 				359C8BB7230B191C003024F1 /* MagicSphereView.swift */,
 			);
@@ -318,7 +321,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				35D814C72046EA7500690159 /* FortuneAppTests.swift in Sources */,
+				357A0C16235B0A7700DA695D /* PredictionManagerTests.swift in Sources */,
+				357A0C18235B0E0700DA695D /* RateAppManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,7 +487,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M64J2FC2KN;
 				INFOPLIST_FILE = FortuneApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bobkexit.FortuneApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -499,7 +503,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = M64J2FC2KN;
 				INFOPLIST_FILE = FortuneApp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.bobkexit.FortuneApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

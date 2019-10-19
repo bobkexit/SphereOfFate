@@ -10,8 +10,13 @@ import Foundation
 import StoreKit
 
 class RateAppController: RateAppManager {
+    
+    private(set) var isReviewRequested: Bool = false // For Unit Tests
 
     func requestReviewIfNeeded() {
+        
+        isReviewRequested = false
+        
         incrementLaunchesCount()
         
         let appLaunchesCount = getLaunchesCount()
@@ -29,6 +34,7 @@ class RateAppController: RateAppManager {
     
     func requestReview() {
         SKStoreReviewController.requestReview()
+        isReviewRequested = true
     }
     
     private func incrementLaunchesCount() {

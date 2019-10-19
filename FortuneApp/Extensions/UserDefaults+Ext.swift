@@ -11,7 +11,5 @@ import UIKit
 extension UserDefaults {
     struct Key {
         static let appLaunchesCount = "APP_LAUNCHES_COUNT"
-        static let predictons = "PREDICTIONS_KEY"
-        static let predictonsHash = "PREDICTIONS_HASH_VALUE_KEY"
     }
 }
