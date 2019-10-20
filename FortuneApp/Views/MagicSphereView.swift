@@ -17,90 +17,21 @@ class MagicSphereView: UIView {
     
     weak var delegate: MagicSphereViewDelegate?
     
-    // MARK: - UI
-    private(set) lazy var hintLabel: UILabel = {
-        let v = UILabel()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        v.text = "Shake the sphere".localized
-        v.textAlignment = .center
-        v.font = UIFont.systemFont(ofSize: 45.0, weight: .light)
-        v.textColor = .white
-        return v
-    } ()
+    // MARK: - UI Properties
     
-    
-    private(set) lazy var predictionLabel: BlingLabel = {
-        let v = BlingLabel()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        v.text = "prediction"
-        v.font = UIFont.systemFont(ofSize: 22.0, weight: .medium)
-        v.textColor = UIColor(red: 0.4529309869, green: 0.5190772414, blue: 0.595322907, alpha: 1)
-        v.numberOfLines = 0
-        v.textAlignment = .center
-        v.numberOfLines = 0
-        v.fadeInDuration = 1.5
-        v.fadeOutDuration = 1.5
-
-        return v
-    } ()
-    
-    private(set) lazy var sphereImageView: UIImageView =  {
-        let v = UIImageView(image: UIImage(named: "Crystal-ball"))
-        v.translatesAutoresizingMaskIntoConstraints = false
-        v.contentMode = .scaleAspectFit
-        return v
-    } ()
-    
-    private(set) lazy var shareButton: UIButton = {
-        let v = UIButton()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        let image = UIImage(named: "Share Icon Solid")
-        v.setImage(image, for: .normal)
-        v.setImage(image, for: .selected)
-        v.addTarget(self, action: #selector(shareButtonTapped(_:)), for: .touchUpInside)
-        return v
-    } ()
-    
-    private(set) lazy var rateAppButton: UIButton = {
-        let v = UIButton()
-        v.translatesAutoresizingMaskIntoConstraints = false
-        let image = UIImage(named: "RateApp Icon Solid")
-        v.setImage(image, for: .normal)
-        v.setImage(image, for: .selected)
-        v.addTarget(self, action: #selector(rateAppButtonTapped(_:)), for: .touchUpInside)
-        return v
-    } ()
-    
-    private lazy var buttonStack: UIStackView = {
-        let v = UIStackView(arrangedSubviews: [shareButton, rateAppButton])
-        v.translatesAutoresizingMaskIntoConstraints = false
-        v.axis = .horizontal
-        v.alignment = .center
-        v.distribution = .fillEqually
-        v.spacing = 40
-        return v
-    } ()
-        
-    private lazy var gradientlayer: CAGradientLayer = {
-        let topColor = UIColor(red: 0.4, green: 0.4980392157, blue: 0.5882352941, alpha: 1)
-        let bottomColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [topColor.cgColor, bottomColor.cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0.5, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 0.5, y: 1)
-        gradientLayer.frame = self.bounds
-        
-        return gradientLayer
-    } ()
-    
+    private lazy var hintLabel: UILabel = self.makeHintLabel()
+    private lazy var predictionLabel: BlingLabel = self.makePredictionLabel()
+    private lazy var sphereImageView: UIImageView =  self.makeSphereImageView()
+    private lazy var shareButton: UIButton = self.makeShareButton()
+    private lazy var rateAppButton: UIButton = self.makeRateAppButton()
+    private lazy var buttonStack: UIStackView = self.makeButtonStack()
+    private lazy var gradientlayer: CAGradientLayer = self.makeGradientlayer()
     private lazy var topContainer: UIView = self.makeViewContainer()
-    
     private lazy var middleContainer: UIView = self.makeViewContainer()
-    
     private lazy var bottomContainer: UIView = self.makeViewContainer()
     
     // MARK: - Init
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         initView()
@@ -123,6 +54,8 @@ class MagicSphereView: UIView {
         
         setupConstraints()
     }
+    
+    // MARK: - Constraints
     
     private func setupConstraints() {
         
@@ -169,6 +102,8 @@ class MagicSphereView: UIView {
         NSLayoutConstraint.activate(constraints)
     }
     
+    // MARK: - View Life Cycle
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -186,12 +121,14 @@ class MagicSphereView: UIView {
         }
     }
     
-    func displayHint() {
+    // MARK: -
+    
+    public func displayHint() {
         hintLabel.alpha = 0
         hintLabel.fadeIn(2.0, delay: 0, completion: {_ in })
     }
     
-    func display(_ prediction: String?, completion: (() -> Void)? = nil) {
+    public func display(_ prediction: String?, completion: (() -> Void)? = nil) {
         sphereImageView.shake { [unowned self] in
             self.predictionLabel.text = prediction
             self.predictionLabel.display {
@@ -200,7 +137,7 @@ class MagicSphereView: UIView {
         }        
     }
     
-    func dismissPrediction(animated: Bool = true) {
+    public func dismissPrediction(animated: Bool = true) {
         
         if !animated {
             predictionLabel.alpha = 0
@@ -212,6 +149,8 @@ class MagicSphereView: UIView {
         buttonStack.fadeOut()
     }
     
+    // MARK: - Actions
+    
     @objc private func rateAppButtonTapped(_ sender: UIButton) {
         delegate?.magicSphereViewDidTapRateAppButton(self)
     }
@@ -220,9 +159,88 @@ class MagicSphereView: UIView {
         delegate?.magicSphereView(self, didTapShare: predictionLabel.text)
     }
     
+    // MARK: - Fabric methods
+    
     private func makeViewContainer() -> UIView {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
         return v
+    }
+    
+    private func makeHintLabel() -> UILabel {
+        let v = UILabel()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.text = "Shake your phone".localized
+        v.textAlignment = .center
+        let fontSize: CGFloat = UIScreen.isSmallScreen ? 32.0 : 45.0
+        v.font = UIFont.systemFont(ofSize: fontSize, weight: .light)
+        v.textColor = .white
+        return v
+    }
+    
+    private func makePredictionLabel() -> BlingLabel {
+        let v = BlingLabel()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.text = ""
+        let fontSize: CGFloat = UIScreen.isSmallScreen ? 14.0 : 22.0
+        v.font = UIFont.systemFont(ofSize: fontSize, weight: .medium)
+        v.textColor = UIColor(red: 0.4529309869, green: 0.5190772414, blue: 0.595322907, alpha: 1)
+        v.numberOfLines = 0
+        v.textAlignment = .center
+        v.numberOfLines = 0
+        v.fadeInDuration = 1.5
+        v.fadeOutDuration = 1.5
+
+        return v
+    }
+    
+    private func makeSphereImageView() -> UIImageView {
+        let v = UIImageView(image: UIImage(named: "Crystal-ball"))
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.contentMode = .scaleAspectFit
+        return v
+    }
+    
+    private func makeShareButton() -> UIButton {
+        let v = UIButton()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        let image = UIImage(named: "Share Icon Solid")
+        v.setImage(image, for: .normal)
+        v.setImage(image, for: .selected)
+        v.addTarget(self, action: #selector(shareButtonTapped(_:)), for: .touchUpInside)
+        return v
+    }
+    
+    private func makeRateAppButton() -> UIButton {
+        let v = UIButton()
+        v.translatesAutoresizingMaskIntoConstraints = false
+        let image = UIImage(named: "RateApp Icon Solid")
+        v.setImage(image, for: .normal)
+        v.setImage(image, for: .selected)
+        v.addTarget(self, action: #selector(rateAppButtonTapped(_:)), for: .touchUpInside)
+        return v
+    }
+    
+    private func makeButtonStack() -> UIStackView {
+        let v = UIStackView(arrangedSubviews: [shareButton, rateAppButton])
+        v.translatesAutoresizingMaskIntoConstraints = false
+        v.axis = .horizontal
+        v.alignment = .center
+        v.distribution = .fillEqually
+        v.spacing = 40
+        return v
+    }
+    
+    private func makeGradientlayer() -> CAGradientLayer {
+        let topColor = UIColor(red: 0.4, green: 0.4980392157, blue: 0.5882352941, alpha: 1)
+        let bottomColor = UIColor(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        
+        let l = CAGradientLayer()
+        l.colors = [topColor.cgColor, bottomColor.cgColor]
+        l.startPoint = CGPoint(x: 0.5, y: 0)
+        l.endPoint = CGPoint(x: 0.5, y: 1)
+        l.frame = self.bounds
+        
+        return l
     }
 }

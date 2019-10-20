@@ -28,6 +28,7 @@
 		35D814E32046FE0B00690159 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D814E22046FE0B00690159 /* String+Ext.swift */; };
 		35DC5A0E2358E5A100AB3FFA /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DC5A0D2358E5A100AB3FFA /* Protocols.swift */; };
 		35DC5A152358E99900AB3FFA /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35DC5A142358E99900AB3FFA /* AppSettings.swift */; };
+		35E0AF1B235CD391009049ED /* UIScreen+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35E0AF1A235CD391009049ED /* UIScreen+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		35D814E22046FE0B00690159 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		35DC5A0D2358E5A100AB3FFA /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		35DC5A142358E99900AB3FFA /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		35E0AF1A235CD391009049ED /* UIScreen+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				359C8BB9230B2333003024F1 /* UIView+Ext.swift */,
 				35D814E22046FE0B00690159 /* String+Ext.swift */,
 				359C8BBD230B3103003024F1 /* UserDefaults+Ext.swift */,
+				35E0AF1A235CD391009049ED /* UIScreen+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -310,6 +313,7 @@
 				35D814E32046FE0B00690159 /* String+Ext.swift in Sources */,
 				356AAEF3204448C300412161 /* PredictionPost.swift in Sources */,
 				359C8BBE230B3103003024F1 /* UserDefaults+Ext.swift in Sources */,
+				35E0AF1B235CD391009049ED /* UIScreen+Ext.swift in Sources */,
 				359C8BB8230B191C003024F1 /* MagicSphereView.swift in Sources */,
 				35600DA7203DDCAA005CEAD9 /* AppDelegate.swift in Sources */,
 				35DC5A152358E99900AB3FFA /* AppSettings.swift in Sources */,

@@ -16,6 +16,8 @@ fileprivate enum AnimationState {
 
 class BlingLabel: UILabel {
 
+    // MARK: - Properties
+    
     public var fadeInDuration: CGFloat = 1.5
     public var fadeOutDuration: CGFloat = 1.5
     public var attributedString: NSMutableAttributedString?
@@ -30,10 +32,11 @@ class BlingLabel: UILabel {
     override var textColor: UIColor! {
         didSet {
             guard textColor.cgColor.alpha > 0 else { return }
-            print("fffffffff: %f", textColor.cgColor.alpha)
             textColorAlpha = textColor.cgColor.alpha
         }
     }
+    
+    // MARK: - Public methods
     
     public func display(completion: (() -> Void)? = nil) {
         animationState = .fadingIn
@@ -49,6 +52,8 @@ class BlingLabel: UILabel {
         prepareForAnimation(with: completion)
         startAnimation()
     }
+    
+    // MARK: - Private methods
     
     private func prepareForAnimation(with completion: (() -> Void)?) {
         let duration = durationFor(animationState)

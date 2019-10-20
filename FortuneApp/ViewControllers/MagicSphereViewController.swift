@@ -10,16 +10,22 @@ import UIKit
 
 class MagicSphereViewController: NiblessViewController {
     
+    // MARK: - Properties
+    
     private weak var timer: Timer?
     private let rateAppManager: RateAppManager
     private let predictionManager: PredictionManager
     private lazy var rootView: MagicSphereView = MagicSphereView()
+    
+    // MARK: - Init
     
     init(rateAppManager: RateAppManager, predictionManager: PredictionManager) {
         self.rateAppManager = rateAppManager
         self.predictionManager = predictionManager
         super.init()
     }
+    
+    // MARK: - View Life Cycle
     
     override func loadView() {
         view = rootView
@@ -57,6 +63,8 @@ class MagicSphereViewController: NiblessViewController {
         updatePrediction()
     }
     
+    // MARK: -
+    
     private func updatePrediction() {
         let prediction = predictionManager.randomPrediction()
         rootView.display(prediction)
@@ -65,7 +73,7 @@ class MagicSphereViewController: NiblessViewController {
     
     private func autoDismissPrediction() {
         timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 5.0, repeats: false) { [weak rootView] (_) in
+        timer = Timer.scheduledTimer(withTimeInterval: 8.0, repeats: false) { [weak rootView] (_) in
             rootView?.dismissPrediction()
         }
     }
@@ -106,6 +114,8 @@ class MagicSphereViewController: NiblessViewController {
     }
 }
 
+// MARK: - MagicSphereView Delegate Methods
+
 extension MagicSphereViewController: MagicSphereViewDelegate {
     func magicSphereViewDidTapRateAppButton(_ magicSphereView: MagicSphereView) {
         rateAppManager.requestReview()
@@ -117,6 +127,8 @@ extension MagicSphereViewController: MagicSphereViewDelegate {
         share(prediction)
     }
 }
+
+// MARK: - PredictionManager Delegate Methods
 
 extension MagicSphereViewController: PredictionManagerDelegate {
     func predictionManager(_ predictionManager: PredictionManager, didFailWith error: Error) {
